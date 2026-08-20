@@ -2348,7 +2348,9 @@
                 this.isDragging = false;
                 this.isPaused = false;
                 this.startX = 0;
+                this.startY = 0;   // store Y for tap detection
                 this.startPos = 0;
+                this.tapTarget = null; // store the tapped item
                 this.rafId = null;
                 this.boundAnimate = this.animate.bind(this);
                 this.lastTimestamp = 0;
@@ -2433,10 +2435,12 @@
             }
 
             bindEvents() {
+                // Mouse events (unchanged)
                 this.row.addEventListener('mousedown', this.onDragStart.bind(this));
                 window.addEventListener('mousemove', this.onDragMove.bind(this));
                 window.addEventListener('mouseup', this.onDragEnd.bind(this));
 
+                // Touch events with tap detection
                 this.row.addEventListener('touchstart', this.onTouchStart.bind(this), { passive: false });
                 window.addEventListener('touchmove', this.onTouchMove.bind(this), { passive: false });
                 window.addEventListener('touchend', this.onTouchEnd.bind(this), { passive: false });
@@ -2485,12 +2489,16 @@
                 this.lastTimestamp = 0;
             }
 
+            // ─── TOUCH EVENTS WITH TAP DETECTION ───
             onTouchStart(e) {
                 const touch = e.touches[0];
                 this.isDragging = true;
                 this.isPaused = true;
                 this.startX = touch.clientX;
+                this.startY = touch.clientY;
                 this.startPos = this.position;
+                // store the tapped element (if any)
+                this.tapTarget = e.target.closest('.testimonial-gallery-item');
                 this.track.classList.add('dragging');
                 e.preventDefault();
             }
@@ -2498,8 +2506,10 @@
             onTouchMove(e) {
                 if (!this.isDragging) return;
                 const touch = e.touches[0];
-                const delta = touch.clientX - this.startX;
-                let newPos = this.startPos + delta;
+                const deltaX = touch.clientX - this.startX;
+                // Only treat as drag if horizontal movement exceeds threshold
+                // We still update position regardless, but we'll use delta for drag
+                let newPos = this.startPos + deltaX;
                 const maxRight = 0;
                 const maxLeft = -this.totalWidth + this.row.getBoundingClientRect().width;
                 newPos = Math.min(maxRight, Math.max(maxLeft, newPos));
@@ -2513,11 +2523,26 @@
                 this.isDragging = false;
                 this.isPaused = false;
                 this.track.classList.remove('dragging');
+
+                // Constrain position
                 const maxRight = 0;
                 const maxLeft = -this.totalWidth + this.row.getBoundingClientRect().width;
                 if (this.position > maxRight) this.position = maxRight;
                 if (this.position < maxLeft) this.position = maxLeft;
                 this.applyPosition();
+
+                // Check if it was a tap (minimal movement) and we have a target
+                const touch = e.changedTouches[0];
+                const deltaX = touch.clientX - this.startX;
+                const deltaY = touch.clientY - this.startY;
+                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                if (distance < 10 && this.tapTarget) {
+                    // Trigger the click on the item
+                    this.tapTarget.click();
+                }
+
+                // Reset
+                this.tapTarget = null;
                 this.lastTimestamp = 0;
             }
         }
