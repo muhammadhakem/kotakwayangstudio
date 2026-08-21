@@ -988,7 +988,7 @@
         .testimonial-marquee-wrap {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 0.5rem;
             max-width: 100%;
             margin: 1rem auto 0;
             user-select: none;
@@ -1001,9 +1001,10 @@
             position: relative;
             cursor: grab;
             touch-action: none;
-            /* Desktop: reduced fade mask — 5% on each side (was 8%) */
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+            padding: 18px 0;
+            /* Very subtle fade mask — only 2% on each side */
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
             -webkit-mask-composite: source-over;
             mask-composite: add;
         }
@@ -1060,7 +1061,7 @@
         }
 
         .testimonial-gallery-item:hover {
-            transform: translateY(-6px);
+            transform: translateY(-4px);
         }
 
         .testimonial-gallery-frame-wrap {
@@ -1102,6 +1103,8 @@
             align-items: center;
             text-align: center;
             gap: 0.1rem;
+            position: relative;
+            z-index: 2;
         }
 
         .testimonial-gallery-name {
@@ -1385,6 +1388,7 @@
             box-shadow: 3px 3px 0px var(--border-dark);
         }
 
+        /* ─── RESPONSIVE ─── */
         @media (max-width: 1024px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -1404,6 +1408,11 @@
             }
             .testimonial-gallery-item .comparison-phone {
                 max-width: 110px;
+            }
+            .testimonial-marquee-row {
+                padding: 16px 0;
+                -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+                mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
             }
         }
 
@@ -1604,7 +1613,12 @@
             }
 
             .testimonial-marquee-wrap {
-                gap: 1rem;
+                gap: 0.5rem;
+            }
+            .testimonial-marquee-row {
+                padding: 14px 0;
+                -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+                mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
             }
             .testimonial-marquee-track {
                 gap: 0.7rem;
@@ -1625,17 +1639,8 @@
                 width: 14px;
                 height: 14px;
             }
-
-            /* Mobile: reduced fade mask size (4% to 96%) + bottom fade untouched */
-            .testimonial-marquee-row {
-                -webkit-mask-image:
-                    linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%),
-                    linear-gradient(to bottom, black 85%, transparent 100%);
-                mask-image:
-                    linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%),
-                    linear-gradient(to bottom, black 85%, transparent 100%);
-                -webkit-mask-composite: intersect;
-                mask-composite: intersect;
+            .testimonial-gallery-item:hover {
+                transform: translateY(-3px);
             }
 
             .lightbox-card {
@@ -1723,6 +1728,11 @@
             .summary-transition {
                 flex-wrap: wrap;
             }
+            .testimonial-marquee-row {
+                padding: 12px 0;
+                -webkit-mask-image: linear-gradient(to right, transparent 0%, black 1.5%, black 98.5%, transparent 100%);
+                mask-image: linear-gradient(to right, transparent 0%, black 1.5%, black 98.5%, transparent 100%);
+            }
             .testimonial-marquee-track {
                 gap: 0.5rem;
             }
@@ -1737,6 +1747,9 @@
             }
             .testimonial-gallery-company {
                 display: none;
+            }
+            .testimonial-gallery-item:hover {
+                transform: translateY(-2px);
             }
             .lightbox-card {
                 max-width: 82vw;
@@ -1785,18 +1798,6 @@
             }
             .process-number {
                 font-size: 1.8rem;
-            }
-
-            /* Very narrow: reduced fade mask size (3% to 97%) */
-            .testimonial-marquee-row {
-                -webkit-mask-image:
-                    linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%),
-                    linear-gradient(to bottom, black 80%, transparent 100%);
-                mask-image:
-                    linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%),
-                    linear-gradient(to bottom, black 80%, transparent 100%);
-                -webkit-mask-composite: intersect;
-                mask-composite: intersect;
             }
         }
     </style>
@@ -2060,7 +2061,7 @@
                 <div class="section-header">
                     <div class="pill-badge" style="background:var(--highlight-yellow); color:var(--fg-slate);">PROVEN RESULTS</div>
                     <h2 class="section-title">Trusted by Leading Brands</h2>
-                    <p class="section-subtitle">See how top sellers boosted viewer retention and live sales with our setups.</p>
+                    <p class="section-subtitle">Drag or swipe to explore client stories — click any card to read the full testimonial.</p>
                 </div>
 
                 <div class="testimonial-marquee-wrap" id="testimonialWrap">
@@ -2171,7 +2172,7 @@
 
     <!-- ═══ SCRIPTS ═══ -->
     <script>
-        // ─── TESTIMONIAL DATA (exactly as originally provided) ───
+        // ─── TESTIMONIAL DATA ───
         const testimonialData = [{
             name: 'Glow Beauty',
             company: 'TikTok Live Brand',
@@ -2348,9 +2349,9 @@
                 this.isDragging = false;
                 this.isPaused = false;
                 this.startX = 0;
-                this.startY = 0;   // store Y for tap detection
+                this.startY = 0;
                 this.startPos = 0;
-                this.tapTarget = null; // store the tapped item
+                this.tapTarget = null;
                 this.rafId = null;
                 this.boundAnimate = this.animate.bind(this);
                 this.lastTimestamp = 0;
@@ -2435,12 +2436,10 @@
             }
 
             bindEvents() {
-                // Mouse events (unchanged)
                 this.row.addEventListener('mousedown', this.onDragStart.bind(this));
                 window.addEventListener('mousemove', this.onDragMove.bind(this));
                 window.addEventListener('mouseup', this.onDragEnd.bind(this));
 
-                // Touch events with tap detection
                 this.row.addEventListener('touchstart', this.onTouchStart.bind(this), { passive: false });
                 window.addEventListener('touchmove', this.onTouchMove.bind(this), { passive: false });
                 window.addEventListener('touchend', this.onTouchEnd.bind(this), { passive: false });
@@ -2489,7 +2488,6 @@
                 this.lastTimestamp = 0;
             }
 
-            // ─── TOUCH EVENTS WITH TAP DETECTION ───
             onTouchStart(e) {
                 const touch = e.touches[0];
                 this.isDragging = true;
@@ -2497,7 +2495,6 @@
                 this.startX = touch.clientX;
                 this.startY = touch.clientY;
                 this.startPos = this.position;
-                // store the tapped element (if any)
                 this.tapTarget = e.target.closest('.testimonial-gallery-item');
                 this.track.classList.add('dragging');
                 e.preventDefault();
@@ -2507,8 +2504,6 @@
                 if (!this.isDragging) return;
                 const touch = e.touches[0];
                 const deltaX = touch.clientX - this.startX;
-                // Only treat as drag if horizontal movement exceeds threshold
-                // We still update position regardless, but we'll use delta for drag
                 let newPos = this.startPos + deltaX;
                 const maxRight = 0;
                 const maxLeft = -this.totalWidth + this.row.getBoundingClientRect().width;
@@ -2524,24 +2519,20 @@
                 this.isPaused = false;
                 this.track.classList.remove('dragging');
 
-                // Constrain position
                 const maxRight = 0;
                 const maxLeft = -this.totalWidth + this.row.getBoundingClientRect().width;
                 if (this.position > maxRight) this.position = maxRight;
                 if (this.position < maxLeft) this.position = maxLeft;
                 this.applyPosition();
 
-                // Check if it was a tap (minimal movement) and we have a target
                 const touch = e.changedTouches[0];
                 const deltaX = touch.clientX - this.startX;
                 const deltaY = touch.clientY - this.startY;
                 const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
                 if (distance < 10 && this.tapTarget) {
-                    // Trigger the click on the item
                     this.tapTarget.click();
                 }
 
-                // Reset
                 this.tapTarget = null;
                 this.lastTimestamp = 0;
             }
