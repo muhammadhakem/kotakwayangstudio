@@ -1035,15 +1035,39 @@
 
         .testimonial-gallery-item .comparison-phone {
             max-width: 130px;
-            border-radius: 14px;
+            border-radius: 12px;
+            /* Consistent ratio: border & padding scale with size */
+            border: 2px solid #475569;
+            background: #0f172a;
+            box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.4);
+            padding: 2px;
         }
 
         .testimonial-gallery-item .phone-frame {
-            border-radius: 12px;
+            border: none !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         .testimonial-gallery-item .phone-screen {
-            border-radius: 10px;
+            border: none !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+        }
+        .testimonial-gallery-item .phone-media-slot {
+            border-radius: 0 !important;
+        }
+        .testimonial-gallery-item .phone-media-slot img,
+        .testimonial-gallery-item .phone-media-slot video {
+            border-radius: 0 !important;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            display: block;
         }
 
         .testimonial-gallery-item {
@@ -1075,7 +1099,7 @@
         .testimonial-gallery-overlay {
             position: absolute;
             inset: 0;
-            border-radius: 34px;
+            border-radius: 12px;
             background: rgba(15, 23, 42, 0);
             display: flex;
             align-items: center;
@@ -1118,40 +1142,6 @@
             font-size: 0.58rem;
             color: #64748B;
             font-weight: 600;
-        }
-
-        /* ─── CLEAN TESTIMONIAL FRAMES (REMOVE INNER STROKE/BORDER) ─── */
-        .testimonial-gallery-item .comparison-phone {
-            border: 3px solid #475569;
-            background: #0f172a;
-            box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.4);
-            border-radius: 14px;
-            padding: 3px;
-        }
-        .testimonial-gallery-item .phone-frame {
-            border: none !important;
-            background: transparent !important;
-            box-shadow: none !important;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        .testimonial-gallery-item .phone-screen {
-            border: none !important;
-            background: transparent !important;
-            box-shadow: none !important;
-            padding: 0 !important;
-            border-radius: 0 !important;
-        }
-        .testimonial-gallery-item .phone-media-slot {
-            border-radius: 0 !important;
-        }
-        .testimonial-gallery-item .phone-media-slot img,
-        .testimonial-gallery-item .phone-media-slot video {
-            border-radius: 0 !important;
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-            display: block;
         }
 
         /* ─── LIGHTBOX ─── */
@@ -1447,6 +1437,17 @@
                 -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
                 mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
             }
+            .testimonial-gallery-item .comparison-phone {
+                border-width: 2px;
+                padding: 2px;
+                border-radius: 11px;
+            }
+            .testimonial-gallery-item .phone-frame {
+                border-radius: 9px;
+            }
+            .testimonial-gallery-overlay {
+                border-radius: 11px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1661,6 +1662,15 @@
             }
             .testimonial-gallery-item .comparison-phone {
                 max-width: 78px;
+                border-width: 1.5px;
+                padding: 1.5px;
+                border-radius: 8px;
+            }
+            .testimonial-gallery-item .phone-frame {
+                border-radius: 6.5px;
+            }
+            .testimonial-gallery-overlay {
+                border-radius: 8px;
             }
             .testimonial-gallery-name {
                 font-size: 0.5rem;
@@ -1774,6 +1784,15 @@
             }
             .testimonial-gallery-item .comparison-phone {
                 max-width: 64px;
+                border-width: 1px;
+                padding: 1px;
+                border-radius: 6px;
+            }
+            .testimonial-gallery-item .phone-frame {
+                border-radius: 5px;
+            }
+            .testimonial-gallery-overlay {
+                border-radius: 6px;
             }
             .testimonial-gallery-name {
                 font-size: 0.4rem;
