@@ -1001,9 +1001,9 @@
             position: relative;
             cursor: grab;
             touch-action: none;
-            /* Smooth edge fade for desktop: left/right only */
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+            /* Reduced fade mask size: 8% to 92% (was 12% to 88%) */
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
             -webkit-mask-composite: source-over;
             mask-composite: add;
         }
@@ -1626,13 +1626,13 @@
                 height: 14px;
             }
 
-            /* Mobile: smooth fade on left, right, AND bottom edges */
+            /* Mobile: reduced fade mask size (4% to 96%) + bottom fade untouched */
             .testimonial-marquee-row {
                 -webkit-mask-image:
-                    linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%),
+                    linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%),
                     linear-gradient(to bottom, black 85%, transparent 100%);
                 mask-image:
-                    linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%),
+                    linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%),
                     linear-gradient(to bottom, black 85%, transparent 100%);
                 -webkit-mask-composite: intersect;
                 mask-composite: intersect;
@@ -1787,13 +1787,13 @@
                 font-size: 1.8rem;
             }
 
-            /* Even narrower: keep the fade but slightly tighter */
+            /* Very narrow: reduced fade mask size (3% to 97%) */
             .testimonial-marquee-row {
                 -webkit-mask-image:
-                    linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%),
+                    linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%),
                     linear-gradient(to bottom, black 80%, transparent 100%);
                 mask-image:
-                    linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%),
+                    linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%),
                     linear-gradient(to bottom, black 80%, transparent 100%);
                 -webkit-mask-composite: intersect;
                 mask-composite: intersect;
