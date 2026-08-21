@@ -2176,12 +2176,12 @@
     scrollToTopSmoothly();
     
     window.addEventListener('load', function() {
-        setTimeout(scrollToTopSmoothly, 50);
+        setTimeout(scrollToTopSmoothly, 300);
     });
     
     window.addEventListener('pageshow', function(event) {
         if (event.persisted) {
-            setTimeout(scrollToTopSmoothly, 50);
+            setTimeout(scrollToTopSmoothly, 300);
         }
     });
     // ─── END OF SCROLL RESET CODE ──────────────────────────────────
