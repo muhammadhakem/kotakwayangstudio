@@ -1002,7 +1002,6 @@
             cursor: grab;
             touch-action: none;
             padding: 18px 0;
-            /* Very subtle fade mask — only 2% on each side */
             -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
             mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
             -webkit-mask-composite: source-over;
@@ -1119,6 +1118,40 @@
             font-size: 0.58rem;
             color: #64748B;
             font-weight: 600;
+        }
+
+        /* ─── CLEAN TESTIMONIAL FRAMES (REMOVE INNER STROKE/BORDER) ─── */
+        .testimonial-gallery-item .comparison-phone {
+            border: 3px solid #475569;
+            background: #0f172a;
+            box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.4);
+            border-radius: 14px;
+            padding: 3px;
+        }
+        .testimonial-gallery-item .phone-frame {
+            border: none !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .testimonial-gallery-item .phone-screen {
+            border: none !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+        }
+        .testimonial-gallery-item .phone-media-slot {
+            border-radius: 0 !important;
+        }
+        .testimonial-gallery-item .phone-media-slot img,
+        .testimonial-gallery-item .phone-media-slot video {
+            border-radius: 0 !important;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            display: block;
         }
 
         /* ─── LIGHTBOX ─── */
@@ -2055,7 +2088,7 @@
             </div>
         </section>
 
-        <!-- CLIENTS / TESTIMONIALS — INFINITE MARQUEE WITH DRAG -->
+        <!-- CLIENTS / TESTIMONIALS — INFINITE MARQUEE WITH DRAG & IMAGES -->
         <section id="clients" class="section-padding" style="background:#FFFDF5;">
             <div class="container">
                 <div class="section-header">
@@ -2172,130 +2205,130 @@
 
     <!-- ═══ SCRIPTS ═══ -->
     <script>
-        // ─── TESTIMONIAL DATA ───
+        // ─── TESTIMONIAL DATA WITH IMAGES ───
         const testimonialData = [{
             name: 'Glow Beauty',
             company: 'TikTok Live Brand',
             quote: 'Revamped our entire TikTok Live studio. The 4K camera clarity & custom lighting doubled our monthly live revenue! The team understood exactly what our brand needed and delivered a setup that looks incredible on every stream.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'Apex Wear',
             company: 'Shopee Mall Seller',
             quote: 'Zero audio lag and extremely sharp visuals during our fashion drops. The dedicated stream PC hasn\'t crashed once in 6 months, and our hosts finally feel confident going live every day.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'Nexus Tech',
             company: 'Electronics Retailer',
             quote: 'The macro overhead camera and instant switcher setup configured by Kotak Wayang lets us showcase fine tech details effortlessly. Viewers can actually see the product specs on screen now.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'Luxe Home',
             company: 'Home & Living Brand',
             quote: 'Transformed an empty room in our office into a broadcast-ready studio in 3 days. Live retention went up by 180%, and the whole team was hands-on throughout the entire process.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1618220179428-22790b461013?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'Bloom Skincare',
             company: 'TikTok Live Brand',
             quote: 'Our skin tone finally reads true on camera. The lighting rig alone changed how viewers trust the product demos.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'UrbanFit',
             company: 'Shopee Live Seller',
             quote: 'Stream stability used to be our biggest worry. Since the setup, we haven\'t had a single dropped session during peak hours.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'TechNova',
             company: 'Electronics Retailer',
             quote: 'The multi-cam switching lets us zoom into specs instantly. Customers ask fewer questions because they can already see the details.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'Casa Living',
             company: 'Home & Living Brand',
             quote: 'Viewers keep commenting on how \'expensive\' our studio looks. It completely changed how the brand is perceived.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1616137466211-f939a420be84?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'PureGlow Cosmetics',
             company: 'TikTok Shop Seller',
             quote: 'Audio clarity was the game changer for us. No more echo complaints in the comments during live Q&A.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'StreetStyle Co',
             company: 'Fashion Retailer',
             quote: 'The backdrop and lighting combo makes our outfits pop instantly. Add-to-cart rate during lives is noticeably higher.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'GadgetHub',
             company: 'Electronics Brand',
             quote: 'Cable management alone saved us from constant on-air accidents. Everything just looks clean and professional now.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'Nourish Kitchenware',
             company: 'Home & Living Brand',
             quote: 'Product demos finally look appetizing on screen. The lighting brings out texture and color the way we always wanted.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1556909114-258a3c0c8d1c?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'VelvetLux',
             company: 'Beauty Brand',
             quote: 'Our hosts feel more confident going live daily. The whole setup just works without technical hiccups.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'FitPeak Sports',
             company: 'Sportswear Brand',
             quote: 'Fast movement during workout demos used to blur out. The camera setup handles motion so much better now.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'AromaCraft',
             company: 'Wellness Brand',
             quote: 'The calm, warm lighting matches our brand tone perfectly. It feels like a proper studio, not a bedroom corner.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'ModernNest',
             company: 'Furniture Brand',
             quote: 'Wide shots of full room setups used to be impossible in our old space. The camera rig solved that completely.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'GlamCase',
             company: 'Accessories Brand',
             quote: 'Close-up product shots look sharp even on small screens. Our return rate dropped since buyers know exactly what they\'re getting.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'PetJoy Malaysia',
             company: 'Pet Products Brand',
             quote: 'Live demos with actual pets used to be chaotic on camera. The setup keeps up with movement and stays steady.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'BrewCraft Coffee',
             company: 'F&B Brand',
             quote: 'Steam, pour shots, and close-ups all look cinematic now. Viewers say our lives feel like a cooking show.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=300&h=600&fit=crop',
             type: 'image'
         }, {
             name: 'KidsWonder',
             company: 'Toys & Baby Brand',
             quote: 'Bright, colorful lighting keeps our lives lively and fun. Parents watching say it feels warm and trustworthy.',
-            media: '',
+            media: 'https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?w=300&h=600&fit=crop',
             type: 'image'
         }];
 
-        // ─── CREATE TESTIMONIAL ITEM ELEMENT ───
+        // ─── CREATE TESTIMONIAL ITEM ELEMENT WITH IMAGE SUPPORT ───
         function createTestimonialItem(data) {
             const item = document.createElement('div');
             item.className = 'testimonial-gallery-item';
@@ -2309,12 +2342,17 @@
             item.dataset.type = data.type || 'image';
             item.onclick = function() { openTestimonialLightbox(this); };
 
+            let mediaContent = `<span class="phone-media-placeholder">Add photo / video</span>`;
+            if (data.media) {
+                mediaContent = `<img src="${data.media}" alt="${data.name}" style="width:100%;height:100%;object-fit:cover;">`;
+            }
+
             item.innerHTML = `
                 <div class="testimonial-gallery-frame-wrap">
                     <div class="comparison-phone">
                         <div class="phone-frame">
                             <div class="phone-screen before-screen phone-media-slot">
-                                <span class="phone-media-placeholder">Add photo / video</span>
+                                ${mediaContent}
                             </div>
                         </div>
                     </div>
