@@ -478,18 +478,6 @@
     padding: 1.5rem 0 2.5rem;
     position: relative;
     overflow: hidden;
-    scroll-margin-top: 80px; /* default for desktop */
-}
-
-@media (max-width: 768px) {
-    .hero {
-        scroll-margin-top: 70px; /* tablet / mobile */
-    }
-}
-@media (max-width: 480px) {
-    .hero {
-        scroll-margin-top: 60px; /* small phones */
-    }
 }
 
         .hero-grid {
@@ -2134,14 +2122,10 @@ if ('scrollRestoration' in history) {
 
 window.addEventListener('load', function() {
     setTimeout(function() {
-        // Scroll to the hero element (respects scroll-margin-top)
-        const hero = document.getElementById('home');
-        if (hero) {
-            hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-            // fallback
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }, 300);
 });
 // ─── END ──────────────────────────────────
