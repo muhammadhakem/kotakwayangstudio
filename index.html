@@ -2155,8 +2155,8 @@
 
     <!-- ═══ SCRIPTS ═══ -->
     <script>
- // ════════════════════════════════════════════════════════════════
-//  SCROLL RESET ON REFRESH — Smooth scroll to top
+// ════════════════════════════════════════════════════════════════
+//  SCROLL RESET ON REFRESH — Smooth scroll (works on desktop + mobile)
 // ════════════════════════════════════════════════════════════════
 
 // 1. Prevent browser from restoring scroll position
@@ -2164,30 +2164,34 @@ if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
 
-// 2. Function to smoothly scroll to top
+// 2. Flag to prevent multiple scroll calls
+let hasScrolled = false;
+
+// 3. Function to smoothly scroll to top
 function scrollToTopSmoothly() {
+    if (hasScrolled) return;  // Only run once
+    hasScrolled = true;
+    
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
 }
 
-// 3. Run immediately on page load
-scrollToTopSmoothly();
-
-// 4. Run after full page load (catches lazy-loaded content)
+// 4. Wait for full page load before scrolling
+//    This avoids conflicts and ensures smooth animation on desktop
 window.addEventListener('load', function() {
-    // Small delay ensures layout is settled before smooth scroll
-    setTimeout(scrollToTopSmoothly, 100);
+    // Small delay ensures layout is fully settled
+    setTimeout(scrollToTopSmoothly, 150);
 });
 
 // 5. Handle mobile browser back/forward cache (bfcache)
 window.addEventListener('pageshow', function(event) {
     if (event.persisted) {
-        setTimeout(scrollToTopSmoothly, 100);
+        hasScrolled = false;  // Reset flag for bfcache
+        setTimeout(scrollToTopSmoothly, 150);
     }
 });
-
 // ─── END OF SCROLL RESET CODE ──────────────────────────────────
         
         // ─── TESTIMONIAL DATA (1-10 local, 11-20 remote) ───
