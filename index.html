@@ -2156,7 +2156,7 @@
     <!-- ═══ SCRIPTS ═══ -->
     <script>
 // ════════════════════════════════════════════════════════════════
-//  SCROLL RESET ON REFRESH — Smooth scroll (works on desktop + mobile)
+//  SCROLL RESET ON REFRESH — Smooth scroll (fixed for desktop)
 // ════════════════════════════════════════════════════════════════
 
 // 1. Prevent browser from restoring scroll position
@@ -2169,7 +2169,7 @@ let hasScrolled = false;
 
 // 3. Function to smoothly scroll to top
 function scrollToTopSmoothly() {
-    if (hasScrolled) return;  // Only run once
+    if (hasScrolled) return;
     hasScrolled = true;
     
     window.scrollTo({
@@ -2178,20 +2178,23 @@ function scrollToTopSmoothly() {
     });
 }
 
-// 4. Wait for full page load before scrolling
-//    This avoids conflicts and ensures smooth animation on desktop
+// 4. Wait longer on desktop to beat browser restoration
 window.addEventListener('load', function() {
-    // Small delay ensures layout is fully settled
-    setTimeout(scrollToTopSmoothly, 150);
+    // 500ms ensures desktop browser restoration is done
+    setTimeout(function() {
+        hasScrolled = false;  // Reset flag for this scroll
+        scrollToTopSmoothly();
+    }, 500);
 });
 
-// 5. Handle mobile browser back/forward cache (bfcache)
+// 5. Handle mobile back/forward cache
 window.addEventListener('pageshow', function(event) {
     if (event.persisted) {
-        hasScrolled = false;  // Reset flag for bfcache
-        setTimeout(scrollToTopSmoothly, 150);
+        hasScrolled = false;
+        setTimeout(scrollToTopSmoothly, 500);
     }
 });
+
 // ─── END OF SCROLL RESET CODE ──────────────────────────────────
         
         // ─── TESTIMONIAL DATA (1-10 local, 11-20 remote) ───
