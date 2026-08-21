@@ -2155,27 +2155,41 @@
 
     <!-- ═══ SCRIPTS ═══ -->
     <script>
+ // ════════════════════════════════════════════════════════════════
+    //  SCROLL RESET ON REFRESH — paste this block here
     // ════════════════════════════════════════════════════════════════
-//  SCROLL RESET ON REFRESH — ADD THIS BLOCK TO ANY PAGE
-//  Place this code inside the <script> tag at the bottom of your HTML,
-//  preferably before other script logic.
-// ════════════════════════════════════════════════════════════════
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    
+    function scrollToTopSmoothly() {
+        try {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } catch (e) {
+            window.scrollTo(0, 0);
+        }
+        setTimeout(function() {
+            window.scrollTo(0, 0);
+        }, 100);
+    }
+    
+    scrollToTopSmoothly();
+    
+    window.addEventListener('load', function() {
+        setTimeout(scrollToTopSmoothly, 50);
+    });
+    
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            setTimeout(scrollToTopSmoothly, 50);
+        }
+    });
+    // ─── END OF SCROLL RESET CODE ──────────────────────────────────
 
-// Option 1: Using history.scrollRestoration (modern browsers)
-// This tells the browser NOT to restore the scroll position on reload.
-if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-}
-
-// Option 2: Force scroll to top on page load (fallback for all browsers)
-// This runs as soon as the script is parsed.
-window.scrollTo(0, 0);
-
-// Option 3: Also run after the page is fully loaded (ensures it works
-// even if some content loads later and shifts the page).
-window.addEventListener('load', function() {
-    window.scrollTo(0, 0);
-});
+    // ─── TESTIMONIAL DATA (1-10 local, 11-20 remote) ───
+    const testimonialData = [{
+        // ... your data
+    }];
 // ─── END OF SCROLL RESET CODE ──────────────────────────────────
         
         // ─── TESTIMONIAL DATA (1-10 local, 11-20 remote) ───
