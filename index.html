@@ -1001,9 +1001,9 @@
             position: relative;
             cursor: grab;
             touch-action: none;
-            /* Reduced fade mask size: 8% to 92% (was 12% to 88%) */
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            /* Desktop: reduced fade mask — 5% on each side (was 8%) */
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
             -webkit-mask-composite: source-over;
             mask-composite: add;
         }
