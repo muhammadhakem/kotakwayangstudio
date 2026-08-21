@@ -2156,35 +2156,39 @@
     <!-- ═══ SCRIPTS ═══ -->
     <script>
  // ════════════════════════════════════════════════════════════════
-    //  SCROLL RESET ON REFRESH — paste this block here
-    // ════════════════════════════════════════════════════════════════
-    if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-    }
-    
-    function scrollToTopSmoothly() {
-        try {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        } catch (e) {
-            window.scrollTo(0, 0);
-        }
-        setTimeout(function() {
-            window.scrollTo(0, 0);
-        }, 100);
-    }
-    
-    scrollToTopSmoothly();
-    
-    window.addEventListener('load', function() {
-        setTimeout(scrollToTopSmoothly, 300);
+//  SCROLL RESET ON REFRESH — Smooth scroll to top
+// ════════════════════════════════════════════════════════════════
+
+// 1. Prevent browser from restoring scroll position
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+// 2. Function to smoothly scroll to top
+function scrollToTopSmoothly() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
-    
-    window.addEventListener('pageshow', function(event) {
-        if (event.persisted) {
-            setTimeout(scrollToTopSmoothly, 300);
-        }
-    });
-    // ─── END OF SCROLL RESET CODE ──────────────────────────────────
+}
+
+// 3. Run immediately on page load
+scrollToTopSmoothly();
+
+// 4. Run after full page load (catches lazy-loaded content)
+window.addEventListener('load', function() {
+    // Small delay ensures layout is settled before smooth scroll
+    setTimeout(scrollToTopSmoothly, 100);
+});
+
+// 5. Handle mobile browser back/forward cache (bfcache)
+window.addEventListener('pageshow', function(event) {
+    if (event.persisted) {
+        setTimeout(scrollToTopSmoothly, 100);
+    }
+});
+
+// ─── END OF SCROLL RESET CODE ──────────────────────────────────
         
         // ─── TESTIMONIAL DATA (1-10 local, 11-20 remote) ───
         const testimonialData = [{
