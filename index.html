@@ -474,11 +474,26 @@
             }
         }
 
+        /* ─── HERO ─── */
+        /* ─── FIX #1: Added scroll-margin-top to prevent navbar overlap on anchor clicks ─── */
         .hero {
-    padding: 1.5rem 0 2.5rem;
-    position: relative;
-    overflow: hidden;
-}
+            padding: 1.5rem 0 2.5rem;
+            position: relative;
+            overflow: hidden;
+            scroll-margin-top: 80px; /* 👈 FIX: Ensures pill badge is visible below navbar */
+        }
+
+        /* ─── FIX #2: Responsive adjustments for mobile ─── */
+        @media (max-width: 768px) {
+            .hero {
+                scroll-margin-top: 70px; /* 👈 FIX: Slightly less margin on tablet */
+            }
+        }
+        @media (max-width: 480px) {
+            .hero {
+                scroll-margin-top: 60px; /* 👈 FIX: Even less on small phones */
+            }
+        }
 
         .hero-grid {
             display: grid;
@@ -1792,7 +1807,6 @@
     <main id="home">
         <!-- HERO -->
         <section class="hero">
-            
             <div class="container">
                 <div class="hero-grid">
                     <div>
@@ -2115,20 +2129,24 @@
 
     <!-- ═══ SCRIPTS ═══ -->
     <script>
-       // ─── SIMPLE SCROLL TO TOP ON REFRESH ───
-if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-}
+        // ─── SIMPLE SCROLL TO TOP ON REFRESH ───
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
 
-window.addEventListener('load', function() {
-    setTimeout(function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+        /* ─── FIX #3: Updated scroll to use scrollIntoView which respects scroll-margin-top ─── */
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const hero = document.getElementById('home');
+                if (hero) {
+                    // 👈 FIX: Uses scrollIntoView instead of scrollTo — this respects scroll-margin-top
+                    hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }, 300);
         });
-    }, 300);
-});
-// ─── END ──────────────────────────────────
+        // ─── END ──────────────────────────────────
 
         // ─── TESTIMONIAL DATA (1-10 local, 11-20 remote) ───
         const testimonialData = [{
