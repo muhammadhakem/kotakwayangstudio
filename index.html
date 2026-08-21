@@ -1036,7 +1036,6 @@
         .testimonial-gallery-item .comparison-phone {
             max-width: 130px;
             border-radius: 12px;
-            /* Consistent ratio: border & padding scale with size */
             border: 2px solid #475569;
             background: #0f172a;
             box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.4);
@@ -2224,7 +2223,7 @@
 
     <!-- ═══ SCRIPTS ═══ -->
     <script>
-        // ─── TESTIMONIAL DATA WITH IMAGES ───
+        // ─── TESTIMONIAL DATA (1-10 local, 11-20 remote) ───
         const testimonialData = [{
             name: 'Glow Beauty',
             company: 'TikTok Live Brand',
@@ -2394,9 +2393,10 @@
 
         // ─── INFINITE MARQUEE WITH DRAG (per row) ───
         class InfiniteMarqueeSlider {
-            constructor(rowElement, rowIndex) {
+            constructor(rowElement, rowIndex, data) {
                 this.row = rowElement;
                 this.track = rowElement.querySelector('.testimonial-marquee-track');
+                this.data = data; // Unique data for this row
                 this.items = [];
                 this.itemWidth = 0;
                 this.gap = 0;
@@ -2423,9 +2423,9 @@
 
             buildTrack() {
                 this.track.innerHTML = '';
-                const copies = 3;
+                const copies = 3; // 3 copies for infinite loop
                 for (let c = 0; c < copies; c++) {
-                    testimonialData.forEach(d => {
+                    this.data.forEach(d => {
                         const el = createTestimonialItem(d);
                         this.track.appendChild(el);
                         this.items.push(el);
@@ -2440,7 +2440,7 @@
                 const style = getComputedStyle(this.track);
                 this.gap = parseFloat(style.gap) || 20;
                 this.itemWidth = rect.width + this.gap;
-                const setWidth = this.itemWidth * testimonialData.length;
+                const setWidth = this.itemWidth * this.data.length;
                 this.totalWidth = setWidth * 3;
                 this.track.style.width = `${this.totalWidth}px`;
                 const maxRight = 0;
@@ -2462,7 +2462,7 @@
                     this.position += this.direction * this.autoScrollSpeed * (delta / 16);
 
                     const viewWidth = this.row.getBoundingClientRect().width;
-                    const setWidth = this.itemWidth * testimonialData.length;
+                    const setWidth = this.itemWidth * this.data.length;
 
                     if (this.direction === -1) {
                         if (this.position < -this.totalWidth + viewWidth) {
@@ -2601,7 +2601,13 @@
         function initSliders() {
             const rows = document.querySelectorAll('.testimonial-marquee-row');
             rows.forEach((row, i) => {
-                const slider = new InfiniteMarqueeSlider(row, i);
+                let rowData;
+                if (i === 0) {
+                    rowData = testimonialData.slice(0, 10); // Top row: first 10 clients
+                } else {
+                    rowData = testimonialData.slice(10, 20); // Bottom row: next 10 clients
+                }
+                const slider = new InfiniteMarqueeSlider(row, i, rowData);
                 sliders.push(slider);
             });
         }
