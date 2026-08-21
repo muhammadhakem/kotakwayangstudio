@@ -479,7 +479,6 @@
             padding: 1.5rem 0 2.5rem;
             position: relative;
             overflow: hidden;
-            /* 👈 SCROLL MARGIN REMOVED FROM .hero – now applied to #home below */
         }
 
         /* ─── FIX: Apply scroll-margin-top to the actual target element (#home) ─── */
@@ -2150,9 +2149,506 @@
         });
         // ─── END ──────────────────────────────────
 
-        // ─── TESTIMONIAL DATA ───
-        const testimonialData = [/* ... same as before ... */];
-        // ... rest of your script remains unchanged ...
+        // ─── TESTIMONIAL DATA (1-10 local, 11-20 remote) ───
+        const testimonialData = [{
+            name: 'Glow Beauty',
+            company: 'TikTok Live Brand',
+            quote: 'Revamped our entire TikTok Live studio. The 4K camera clarity & custom lighting doubled our monthly live revenue! The team understood exactly what our brand needed and delivered a setup that looks incredible on every stream.',
+            media: 'images-testimoni/1.PNG',
+            type: 'image'
+        }, {
+            name: 'Apex Wear',
+            company: 'Shopee Mall Seller',
+            quote: 'Zero audio lag and extremely sharp visuals during our fashion drops. The dedicated stream PC hasn\'t crashed once in 6 months, and our hosts finally feel confident going live every day.',
+            media: 'images-testimoni/2.PNG',
+            type: 'image'
+        }, {
+            name: 'Nexus Tech',
+            company: 'Electronics Retailer',
+            quote: 'The macro overhead camera and instant switcher setup configured by Kotak Wayang lets us showcase fine tech details effortlessly. Viewers can actually see the product specs on screen now.',
+            media: 'images-testimoni/3.PNG',
+            type: 'image'
+        }, {
+            name: 'Luxe Home',
+            company: 'Home & Living Brand',
+            quote: 'Transformed an empty room in our office into a broadcast-ready studio in 3 days. Live retention went up by 180%, and the whole team was hands-on throughout the entire process.',
+            media: 'images-testimoni/4.PNG',
+            type: 'image'
+        }, {
+            name: 'Bloom Skincare',
+            company: 'TikTok Live Brand',
+            quote: 'Our skin tone finally reads true on camera. The lighting rig alone changed how viewers trust the product demos.',
+            media: 'images-testimoni/5.PNG',
+            type: 'image'
+        }, {
+            name: 'UrbanFit',
+            company: 'Shopee Live Seller',
+            quote: 'Stream stability used to be our biggest worry. Since the setup, we haven\'t had a single dropped session during peak hours.',
+            media: 'images-testimoni/6.PNG',
+            type: 'image'
+        }, {
+            name: 'TechNova',
+            company: 'Electronics Retailer',
+            quote: 'The multi-cam switching lets us zoom into specs instantly. Customers ask fewer questions because they can already see the details.',
+            media: 'images-testimoni/7.PNG',
+            type: 'image'
+        }, {
+            name: 'Casa Living',
+            company: 'Home & Living Brand',
+            quote: 'Viewers keep commenting on how \'expensive\' our studio looks. It completely changed how the brand is perceived.',
+            media: 'images-testimoni/8.PNG',
+            type: 'image'
+        }, {
+            name: 'PureGlow Cosmetics',
+            company: 'TikTok Shop Seller',
+            quote: 'Audio clarity was the game changer for us. No more echo complaints in the comments during live Q&A.',
+            media: 'images-testimoni/9.PNG',
+            type: 'image'
+        }, {
+            name: 'StreetStyle Co',
+            company: 'Fashion Retailer',
+            quote: 'The backdrop and lighting combo makes our outfits pop instantly. Add-to-cart rate during lives is noticeably higher.',
+            media: 'images-testimoni/10.PNG',
+            type: 'image'
+        }, {
+            name: 'GadgetHub',
+            company: 'Electronics Brand',
+            quote: 'Cable management alone saved us from constant on-air accidents. Everything just looks clean and professional now.',
+            media: 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=300&h=600&fit=crop',
+            type: 'image'
+        }, {
+            name: 'Nourish Kitchenware',
+            company: 'Home & Living Brand',
+            quote: 'Product demos finally look appetizing on screen. The lighting brings out texture and color the way we always wanted.',
+            media: 'https://images.unsplash.com/photo-1556909114-258a3c0c8d1c?w=300&h=600&fit=crop',
+            type: 'image'
+        }, {
+            name: 'VelvetLux',
+            company: 'Beauty Brand',
+            quote: 'Our hosts feel more confident going live daily. The whole setup just works without technical hiccups.',
+            media: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=300&h=600&fit=crop',
+            type: 'image'
+        }, {
+            name: 'FitPeak Sports',
+            company: 'Sportswear Brand',
+            quote: 'Fast movement during workout demos used to blur out. The camera setup handles motion so much better now.',
+            media: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=300&h=600&fit=crop',
+            type: 'image'
+        }, {
+            name: 'AromaCraft',
+            company: 'Wellness Brand',
+            quote: 'The calm, warm lighting matches our brand tone perfectly. It feels like a proper studio, not a bedroom corner.',
+            media: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300&h=600&fit=crop',
+            type: 'image'
+        }, {
+            name: 'ModernNest',
+            company: 'Furniture Brand',
+            quote: 'Wide shots of full room setups used to be impossible in our old space. The camera rig solved that completely.',
+            media: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=300&h=600&fit=crop',
+            type: 'image'
+        }, {
+            name: 'GlamCase',
+            company: 'Accessories Brand',
+            quote: 'Close-up product shots look sharp even on small screens. Our return rate dropped since buyers know exactly what they\'re getting.',
+            media: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&h=600&fit=crop',
+            type: 'image'
+        }, {
+            name: 'PetJoy Malaysia',
+            company: 'Pet Products Brand',
+            quote: 'Live demos with actual pets used to be chaotic on camera. The setup keeps up with movement and stays steady.',
+            media: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=300&h=600&fit=crop',
+            type: 'image'
+        }, {
+            name: 'BrewCraft Coffee',
+            company: 'F&B Brand',
+            quote: 'Steam, pour shots, and close-ups all look cinematic now. Viewers say our lives feel like a cooking show.',
+            media: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=300&h=600&fit=crop',
+            type: 'image'
+        }, {
+            name: 'KidsWonder',
+            company: 'Toys & Baby Brand',
+            quote: 'Bright, colorful lighting keeps our lives lively and fun. Parents watching say it feels warm and trustworthy.',
+            media: 'https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?w=300&h=600&fit=crop',
+            type: 'image'
+        }];
+
+        // ─── CREATE TESTIMONIAL ITEM ELEMENT WITH IMAGE SUPPORT ───
+        function createTestimonialItem(data) {
+            const item = document.createElement('div');
+            item.className = 'testimonial-gallery-item';
+            item.setAttribute('role', 'button');
+            item.setAttribute('tabindex', '0');
+            item.setAttribute('aria-label', `View testimonial from ${data.name}`);
+            item.dataset.name = data.name;
+            item.dataset.company = data.company;
+            item.dataset.quote = data.quote;
+            item.dataset.media = data.media || '';
+            item.dataset.type = data.type || 'image';
+            item.onclick = function() { openTestimonialLightbox(this); };
+
+            let mediaContent = `<span class="phone-media-placeholder">Add photo / video</span>`;
+            if (data.media) {
+                mediaContent = `<img src="${data.media}" alt="${data.name}" style="width:100%;height:100%;object-fit:cover;">`;
+            }
+
+            item.innerHTML = `
+                <div class="testimonial-gallery-frame-wrap">
+                    <div class="comparison-phone">
+                        <div class="phone-frame">
+                            <div class="phone-screen before-screen phone-media-slot">
+                                ${mediaContent}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-gallery-overlay">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="7"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            <line x1="11" y1="8" x2="11" y2="14"/>
+                            <line x1="8" y1="11" x2="14" y2="11"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="testimonial-gallery-caption">
+                    <span class="testimonial-gallery-name">${data.name}</span>
+                    <span class="testimonial-gallery-company">${data.company}</span>
+                </div>
+            `;
+            return item;
+        }
+
+        // ─── INFINITE MARQUEE WITH DRAG (per row) ───
+        class InfiniteMarqueeSlider {
+            constructor(rowElement, rowIndex, data) {
+                this.row = rowElement;
+                this.track = rowElement.querySelector('.testimonial-marquee-track');
+                this.data = data;
+                this.items = [];
+                this.itemWidth = 0;
+                this.gap = 0;
+                this.totalWidth = 0;
+                this.position = 0;
+                this.autoScrollSpeed = 0.2;
+                this.isDragging = false;
+                this.isPaused = false;
+                this.startX = 0;
+                this.startY = 0;
+                this.startPos = 0;
+                this.tapTarget = null;
+                this.rafId = null;
+                this.boundAnimate = this.animate.bind(this);
+                this.lastTimestamp = 0;
+
+                this.direction = rowIndex === 0 ? -1 : 1;
+
+                this.buildTrack();
+                this.updateDimensions();
+                this.bindEvents();
+                this.start();
+            }
+
+            buildTrack() {
+                this.track.innerHTML = '';
+                const copies = 3;
+                for (let c = 0; c < copies; c++) {
+                    this.data.forEach(d => {
+                        const el = createTestimonialItem(d);
+                        this.track.appendChild(el);
+                        this.items.push(el);
+                    });
+                }
+            }
+
+            updateDimensions() {
+                if (this.items.length === 0) return;
+                const first = this.items[0];
+                const rect = first.getBoundingClientRect();
+                const style = getComputedStyle(this.track);
+                this.gap = parseFloat(style.gap) || 20;
+                this.itemWidth = rect.width + this.gap;
+                const setWidth = this.itemWidth * this.data.length;
+                this.totalWidth = setWidth * 3;
+                this.track.style.width = `${this.totalWidth}px`;
+                const maxRight = 0;
+                const maxLeft = -this.totalWidth + this.row.getBoundingClientRect().width;
+                this.position = Math.min(maxRight, Math.max(maxLeft, this.position));
+                this.applyPosition();
+            }
+
+            applyPosition() {
+                this.track.style.transform = `translateX(${this.position}px)`;
+            }
+
+            animate(timestamp) {
+                if (!this.lastTimestamp) this.lastTimestamp = timestamp;
+                const delta = timestamp - this.lastTimestamp;
+                this.lastTimestamp = timestamp;
+
+                if (!this.isDragging && !this.isPaused) {
+                    this.position += this.direction * this.autoScrollSpeed * (delta / 16);
+
+                    const viewWidth = this.row.getBoundingClientRect().width;
+                    const setWidth = this.itemWidth * this.data.length;
+
+                    if (this.direction === -1) {
+                        if (this.position < -this.totalWidth + viewWidth) {
+                            this.position += setWidth;
+                        }
+                    } else {
+                        if (this.position > 0) {
+                            this.position -= setWidth;
+                        }
+                    }
+
+                    this.applyPosition();
+                }
+                this.rafId = requestAnimationFrame(this.boundAnimate);
+            }
+
+            start() {
+                if (this.rafId) cancelAnimationFrame(this.rafId);
+                this.lastTimestamp = 0;
+                this.rafId = requestAnimationFrame(this.boundAnimate);
+            }
+
+            stop() {
+                if (this.rafId) {
+                    cancelAnimationFrame(this.rafId);
+                    this.rafId = null;
+                }
+            }
+
+            bindEvents() {
+                this.row.addEventListener('mousedown', this.onDragStart.bind(this));
+                window.addEventListener('mousemove', this.onDragMove.bind(this));
+                window.addEventListener('mouseup', this.onDragEnd.bind(this));
+
+                this.row.addEventListener('touchstart', this.onTouchStart.bind(this), { passive: false });
+                window.addEventListener('touchmove', this.onTouchMove.bind(this), { passive: false });
+                window.addEventListener('touchend', this.onTouchEnd.bind(this), { passive: false });
+
+                let resizeTimer;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(() => {
+                        this.updateDimensions();
+                    }, 200);
+                });
+            }
+
+            onDragStart(e) {
+                if (e.button !== 0) return;
+                this.isDragging = true;
+                this.isPaused = true;
+                this.startX = e.clientX;
+                this.startPos = this.position;
+                this.track.classList.add('dragging');
+                e.preventDefault();
+            }
+
+            onDragMove(e) {
+                if (!this.isDragging) return;
+                const delta = e.clientX - this.startX;
+                let newPos = this.startPos + delta;
+                const maxRight = 0;
+                const maxLeft = -this.totalWidth + this.row.getBoundingClientRect().width;
+                newPos = Math.min(maxRight, Math.max(maxLeft, newPos));
+                this.position = newPos;
+                this.applyPosition();
+                e.preventDefault();
+            }
+
+            onDragEnd(e) {
+                if (!this.isDragging) return;
+                this.isDragging = false;
+                this.isPaused = false;
+                this.track.classList.remove('dragging');
+                const maxRight = 0;
+                const maxLeft = -this.totalWidth + this.row.getBoundingClientRect().width;
+                if (this.position > maxRight) this.position = maxRight;
+                if (this.position < maxLeft) this.position = maxLeft;
+                this.applyPosition();
+                this.lastTimestamp = 0;
+            }
+
+            onTouchStart(e) {
+                const touch = e.touches[0];
+                this.isDragging = true;
+                this.isPaused = true;
+                this.startX = touch.clientX;
+                this.startY = touch.clientY;
+                this.startPos = this.position;
+                this.tapTarget = e.target.closest('.testimonial-gallery-item');
+                this.track.classList.add('dragging');
+                e.preventDefault();
+            }
+
+            onTouchMove(e) {
+                if (!this.isDragging) return;
+                const touch = e.touches[0];
+                const deltaX = touch.clientX - this.startX;
+                let newPos = this.startPos + deltaX;
+                const maxRight = 0;
+                const maxLeft = -this.totalWidth + this.row.getBoundingClientRect().width;
+                newPos = Math.min(maxRight, Math.max(maxLeft, newPos));
+                this.position = newPos;
+                this.applyPosition();
+                e.preventDefault();
+            }
+
+            onTouchEnd(e) {
+                if (!this.isDragging) return;
+                this.isDragging = false;
+                this.isPaused = false;
+                this.track.classList.remove('dragging');
+
+                const maxRight = 0;
+                const maxLeft = -this.totalWidth + this.row.getBoundingClientRect().width;
+                if (this.position > maxRight) this.position = maxRight;
+                if (this.position < maxLeft) this.position = maxLeft;
+                this.applyPosition();
+
+                const touch = e.changedTouches[0];
+                const deltaX = touch.clientX - this.startX;
+                const deltaY = touch.clientY - this.startY;
+                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                if (distance < 10 && this.tapTarget) {
+                    this.tapTarget.click();
+                }
+
+                this.tapTarget = null;
+                this.lastTimestamp = 0;
+            }
+        }
+
+        // ─── INIT SLIDERS ───
+        let sliders = [];
+
+        function initSliders() {
+            const rows = document.querySelectorAll('.testimonial-marquee-row');
+            rows.forEach((row, i) => {
+                let rowData;
+                if (i === 0) {
+                    rowData = testimonialData.slice(0, 10);
+                } else {
+                    rowData = testimonialData.slice(10, 20);
+                }
+                const slider = new InfiniteMarqueeSlider(row, i, rowData);
+                sliders.push(slider);
+            });
+        }
+
+        // ─── MODAL FUNCTIONS ───
+        function openModal() {
+            document.getElementById('bookingModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('bookingModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeModalOnOverlay(e) {
+            if (e.target.id === 'bookingModal') closeModal();
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 4000);
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('fullName').value;
+            const phone = document.getElementById('phoneNum').value;
+            const platform = document.getElementById('platformSelect').value;
+            const notes = document.getElementById('notes').value;
+            const waNumber = '601123456789';
+            const messageLines = [
+                "Hi Kotak Wayang Studio! I'd like to book a free consultation.",
+                "",
+                `Name: ${name}`,
+                `Phone: ${phone}`,
+                `Platform: ${platform}`,
+                `Details: ${notes || '-'}`
+            ].join('\n');
+            const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(messageLines)}`;
+            closeModal();
+            showToast(`Thank you, ${name}! Redirecting you to WhatsApp...`);
+            document.getElementById('consultForm').reset();
+            window.open(waUrl, '_blank');
+        }
+
+        function toggleMobileNav() {
+            const links = document.getElementById('navLinks');
+            links.classList.toggle('mobile-open');
+        }
+
+        document.querySelectorAll('#navLinks .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('mobile-open');
+            });
+        });
+
+        // ─── TESTIMONIAL LIGHTBOX ───
+        function openTestimonialLightbox(el) {
+            const name = el.dataset.name || '';
+            const company = el.dataset.company || '';
+            const quote = el.dataset.quote || '';
+            const mediaSrc = el.dataset.media || '';
+            const mediaType = el.dataset.type || 'image';
+
+            document.getElementById('lightboxName').innerText = name;
+            document.getElementById('lightboxCompany').innerText = company;
+            document.getElementById('lightboxQuote').innerText = quote;
+
+            const img = document.getElementById('lightboxImg');
+            const vid = document.getElementById('lightboxVideo');
+            const placeholder = document.getElementById('lightboxPlaceholder');
+
+            img.style.display = 'none';
+            vid.pause();
+            vid.style.display = 'none';
+            placeholder.style.display = 'none';
+
+            if (mediaSrc && mediaType === 'video') {
+                vid.src = mediaSrc;
+                vid.style.display = 'block';
+            } else if (mediaSrc) {
+                img.src = mediaSrc;
+                img.style.display = 'block';
+            } else {
+                placeholder.style.display = 'flex';
+            }
+
+            document.getElementById('testimonialLightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTestimonialLightbox() {
+            document.getElementById('testimonialLightbox').classList.remove('active');
+            document.body.style.overflow = '';
+            document.getElementById('lightboxVideo').pause();
+        }
+
+        function closeTestimonialLightboxOnOverlay(e) {
+            if (e.target.id === 'testimonialLightbox') closeTestimonialLightbox();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeTestimonialLightbox();
+                closeModal();
+            }
+        });
+
+        // ─── INIT ───
+        document.addEventListener('DOMContentLoaded', function() {
+            initSliders();
+        });
     </script>
 </body>
 </html>
