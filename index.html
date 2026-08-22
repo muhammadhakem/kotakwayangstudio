@@ -165,22 +165,23 @@
             transition: var(--transition-bounce);
             flex-shrink: 0;
             overflow: hidden;
-            padding: 4px;
+            padding: 0; /* remove padding so image fills completely */
         }
 
         .logo-box img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover; /* ensure image fills the box without distortion */
             display: block;
         }
 
+        /* Hover: rotate and scale, but no background color change */
         .brand-logo:hover .logo-box {
             transform: rotate(6deg) scale(1.1);
-            background: var(--secondary-pink);
+            /* background change removed */
         }
 
-        /* ─── Active/press state ─── */
+        /* Active/press state */
         .brand-logo:active .logo-box {
             transform: rotate(-3deg) scale(0.95);
         }
@@ -325,7 +326,6 @@
             .logo-box {
                 width: 34px;
                 height: 34px;
-                padding: 3px;
             }
             .nav-links {
                 display: none !important;
@@ -367,7 +367,6 @@
             .logo-box {
                 width: 28px;
                 height: 28px;
-                padding: 2px;
             }
             .navbar {
                 padding: 0 0.6rem;
@@ -1377,7 +1376,6 @@
         .footer-simple .logo-box {
             width: 38px;
             height: 38px;
-            padding: 4px;
         }
 
         .footer-bottom {
@@ -1441,7 +1439,6 @@
             .footer-simple .logo-box {
                 width: 34px;
                 height: 34px;
-                padding: 3px;
             }
         }
 
@@ -1762,7 +1759,6 @@
             .footer-simple .logo-box {
                 width: 34px;
                 height: 34px;
-                padding: 3px;
             }
         }
 
@@ -1770,7 +1766,6 @@
             .logo-box {
                 width: 28px;
                 height: 28px;
-                padding: 2px;
             }
             .modal-overlay#testimonialLightbox .modal-card.lightbox-card {
                 padding: 0.3rem 0.3rem env(safe-area-inset-bottom, 0.3rem);
@@ -1885,7 +1880,6 @@
             .footer-simple .logo-box {
                 width: 28px;
                 height: 28px;
-                padding: 2px;
             }
         }
 
