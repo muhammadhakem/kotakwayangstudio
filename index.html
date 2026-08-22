@@ -481,6 +481,7 @@
             overflow: hidden;
         }
 
+        /* ─── FIX: Apply scroll-margin-top to the actual target element (#home) ─── */
         #home {
             scroll-margin-top: 80px;
         }
@@ -1423,24 +1424,21 @@
         }
 
         @media (max-width: 768px) {
-            /* ─── LIGHTBOX: more compact on mobile ─── */
+            /* ─── FIX: Mobile lightbox - ENHANCED SIZE for better clarity ─── */
             .lightbox-card {
                 flex-direction: column;
-                padding: 1rem;
-                gap: 0.75rem;
-                max-width: 94vw;
+                padding: 1.5rem;
+                gap: 1.5rem;
+                max-width: 92vw;
                 text-align: center;
-                border-radius: var(--radius-md);
-                max-height: 92vh;
-                overflow-y: auto;
+                border-radius: var(--radius-lg);
             }
             .lightbox-media {
                 flex: 0 0 auto;
-                max-width: 160px;
+                max-width: 240px; /* Increased from 170px for much better visibility */
                 width: 100%;
                 margin: 0 auto;
-                border-radius: 16px;
-                border-width: 2px;
+                border-radius: 20px;
             }
             .lightbox-media img,
             .lightbox-media video {
@@ -1449,37 +1447,31 @@
                 aspect-ratio: 9 / 18;
                 object-fit: cover;
             }
-            .lightbox-content {
-                gap: 0.3rem;
+            .lightbox-author {
+                align-items: center;
+                padding-top: 0.6rem;
             }
             .lightbox-quote {
-                font-size: 0.78rem;
-                line-height: 1.5;
-                margin-bottom: 0.5rem;
-                font-weight: 500;
-                text-align: center;
-                padding: 0 0.2rem;
-            }
-            .lightbox-author {
-                padding-top: 0.5rem;
-                border-top: 1px dashed var(--border-light);
-                align-items: center;
-                gap: 0.1rem;
+                font-size: 0.95rem; /* Increased from 0.82rem */
+                margin-bottom: 0.85rem;
+                line-height: 1.6;
             }
             .lightbox-name {
-                font-size: 0.82rem;
-                font-weight: 800;
+                font-size: 1rem; /* Increased from 0.92rem */
             }
             .lightbox-company {
-                font-size: 0.7rem;
-                font-weight: 500;
+                font-size: 0.85rem; /* Increased from 0.72rem */
+            }
+            .modal-card {
+                padding: 1.25rem;
+                max-width: 92vw;
             }
             .modal-close {
-                width: 32px;
-                height: 32px;
-                font-size: 0.85rem;
-                top: 0.5rem;
-                right: 0.5rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                top: 0.75rem;
+                right: 0.75rem;
             }
 
             /* ─── Rest of mobile styles ─── */
@@ -1714,40 +1706,33 @@
             }
         }
 
-        @media (max-width: 480px) {
-            /* ─── Very small phones: even more compact lightbox ─── */
+        @media (max-width: 400px) {
+            /* ─── Very small phones: even larger lightbox proportion ─── */
             .lightbox-card {
-                max-width: 96vw;
-                padding: 0.75rem;
-                gap: 0.5rem;
-                border-radius: var(--radius-md);
-                max-height: 94vh;
+                max-width: 95vw;
+                padding: 1rem;
             }
             .lightbox-media {
-                max-width: 130px;
-                border-radius: 12px;
-                border-width: 2px;
+                max-width: 200px; /* Slightly smaller but still much bigger than 170px */
             }
             .lightbox-quote {
-                font-size: 0.7rem;
-                line-height: 1.45;
-                margin-bottom: 0.3rem;
+                font-size: 0.85rem;
             }
             .lightbox-name {
-                font-size: 0.72rem;
+                font-size: 0.95rem;
             }
             .lightbox-company {
-                font-size: 0.6rem;
+                font-size: 0.75rem;
             }
-            .lightbox-author {
-                padding-top: 0.35rem;
+            .modal-card {
+                padding: 1rem;
             }
             .modal-close {
-                width: 28px;
-                height: 28px;
-                font-size: 0.75rem;
-                top: 0.35rem;
-                right: 0.35rem;
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+                top: 0.5rem;
+                right: 0.5rem;
             }
 
             .container {
@@ -1825,36 +1810,6 @@
             }
             .process-number {
                 font-size: 1.6rem;
-            }
-        }
-
-        @media (max-width: 380px) {
-            /* ─── Tiny screens: ultra-compact lightbox ─── */
-            .lightbox-card {
-                padding: 0.5rem;
-                gap: 0.35rem;
-            }
-            .lightbox-media {
-                max-width: 100px;
-                border-radius: 10px;
-            }
-            .lightbox-quote {
-                font-size: 0.6rem;
-                line-height: 1.4;
-                margin-bottom: 0.2rem;
-            }
-            .lightbox-name {
-                font-size: 0.65rem;
-            }
-            .lightbox-company {
-                font-size: 0.55rem;
-            }
-            .modal-close {
-                width: 24px;
-                height: 24px;
-                font-size: 0.65rem;
-                top: 0.25rem;
-                right: 0.25rem;
             }
         }
     </style>
