@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>Kotak Wayang Studio</title>
     <meta name="description" content="Malaysia's premier livestream studio setup engineers. We build high-converting, professional studio setups for TikTok Shop, Shopee Live, and corporate broadcasting." />
 
@@ -151,6 +151,13 @@
             white-space: nowrap;
         }
 
+        .brand-logo img {
+            height: 38px;
+            width: auto;
+            flex-shrink: 0;
+            display: block;
+        }
+
         .brand-logo span {
             white-space: nowrap;
             overflow: hidden;
@@ -158,27 +165,9 @@
             min-width: 0;
         }
 
+        /* Remove old .logo-box styles since we're using an image */
         .logo-box {
-            width: 38px;
-            height: 38px;
-            background: var(--primary-violet);
-            color: #FFFFFF;
-            border: 2px solid var(--border-dark);
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 2px 2px 0px var(--border-dark);
-            font-weight: 900;
-            font-size: 1rem;
-            transform: rotate(-3deg);
-            transition: var(--transition-bounce);
-            flex-shrink: 0;
-        }
-
-        .brand-logo:hover .logo-box {
-            transform: rotate(6deg) scale(1.1);
-            background: var(--secondary-pink);
+            display: none;
         }
 
         .nav-links {
@@ -309,7 +298,11 @@
             display: inline;
         }
 
+        /* ─── Responsive adjustments for logo image ─── */
         @media (max-width: 1024px) {
+            .brand-logo img {
+                height: 34px;
+            }
             .nav-links {
                 display: none !important;
             }
@@ -323,11 +316,6 @@
             }
             .brand-logo {
                 font-size: clamp(0.75rem, 1.6vw, 1rem);
-            }
-            .logo-box {
-                width: 34px;
-                height: 34px;
-                font-size: 0.85rem;
             }
             .btn-sm {
                 padding: 0.4rem 0.9rem;
@@ -352,6 +340,9 @@
         }
 
         @media (max-width: 480px) {
+            .brand-logo img {
+                height: 28px;
+            }
             .navbar {
                 padding: 0 0.6rem;
                 top: 0.6rem;
@@ -363,11 +354,6 @@
             .brand-logo {
                 font-size: clamp(0.65rem, 2.5vw, 0.8rem);
                 gap: 0.4rem;
-            }
-            .logo-box {
-                width: 28px;
-                height: 28px;
-                font-size: 0.7rem;
             }
             .btn-sm.nav-book-btn {
                 width: 32px;
@@ -481,7 +467,6 @@
             overflow: hidden;
         }
 
-        /* ─── FIX: Apply scroll-margin-top to the actual target element (#home) ─── */
         #home {
             scroll-margin-top: 80px;
         }
@@ -1246,7 +1231,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.5rem;
+            padding: 1rem;
             opacity: 0;
             pointer-events: none;
             transition: opacity var(--transition-fast);
@@ -1363,6 +1348,11 @@
             margin-bottom: 1.5rem;
         }
 
+        .footer-simple .brand-logo img {
+            height: 38px;
+            width: auto;
+        }
+
         .footer-bottom {
             padding-top: 1.5rem;
             border-top: 1px solid var(--border-light);
@@ -1421,57 +1411,94 @@
             .testimonial-marquee-row {
                 padding: 12px 0;
             }
+            /* footer logo size */
+            .footer-simple .brand-logo img {
+                height: 34px;
+            }
         }
 
         @media (max-width: 768px) {
-            /* ─── FIX: Mobile lightbox - ENHANCED SIZE for better clarity ─── */
-            .lightbox-card {
-                flex-direction: column;
-                padding: 1.5rem;
-                gap: 1.5rem;
-                max-width: 92vw;
-                text-align: center;
-                border-radius: var(--radius-lg);
+            /* ─── LIGHTBOX: FULL SCREEN on mobile ─── */
+            .modal-overlay#testimonialLightbox {
+                padding: 0;
+                background: rgba(30, 41, 59, 0.92);
+                backdrop-filter: blur(4px);
             }
-            .lightbox-media {
+            .modal-overlay#testimonialLightbox .modal-card.lightbox-card {
+                max-width: 100vw;
+                max-height: 100dvh;
+                width: 100vw;
+                height: 100dvh;
+                border-radius: 0;
+                border: none;
+                box-shadow: none;
+                padding: 0.5rem 0.5rem env(safe-area-inset-bottom, 0.5rem);
+                transform: scale(1);
+                background: var(--bg-paper);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+                overflow-y: auto;
+            }
+            .modal-overlay#testimonialLightbox .modal-close {
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                z-index: 10;
+                background: rgba(255, 255, 255, 0.9);
+                border: 2px solid var(--border-dark);
+                box-shadow: 2px 2px 0px var(--border-dark);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .lightbox-card .lightbox-media {
                 flex: 0 0 auto;
-                max-width: 240px; /* Increased from 170px for much better visibility */
+                max-width: 180px;
                 width: 100%;
                 margin: 0 auto;
-                border-radius: 20px;
+                border-radius: 14px;
+                border: 2px solid var(--border-dark);
+                box-shadow: var(--shadow-sticker);
             }
-            .lightbox-media img,
-            .lightbox-media video {
+            .lightbox-card .lightbox-media img,
+            .lightbox-card .lightbox-media video {
                 width: 100%;
                 height: auto;
                 aspect-ratio: 9 / 18;
                 object-fit: cover;
             }
-            .lightbox-author {
+            .lightbox-card .lightbox-content {
+                gap: 0.3rem;
+                padding: 0 0.2rem;
+                text-align: center;
+                max-width: 90%;
+            }
+            .lightbox-card .lightbox-quote {
+                font-size: 0.72rem;
+                line-height: 1.5;
+                margin-bottom: 0.2rem;
+                font-weight: 500;
+            }
+            .lightbox-card .lightbox-author {
+                padding-top: 0.4rem;
+                border-top: 1px dashed var(--border-light);
                 align-items: center;
-                padding-top: 0.6rem;
+                gap: 0.1rem;
             }
-            .lightbox-quote {
-                font-size: 0.95rem; /* Increased from 0.82rem */
-                margin-bottom: 0.85rem;
-                line-height: 1.6;
+            .lightbox-card .lightbox-name {
+                font-size: 0.72rem;
+                font-weight: 800;
             }
-            .lightbox-name {
-                font-size: 1rem; /* Increased from 0.92rem */
-            }
-            .lightbox-company {
-                font-size: 0.85rem; /* Increased from 0.72rem */
-            }
-            .modal-card {
-                padding: 1.25rem;
-                max-width: 92vw;
-            }
-            .modal-close {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-                top: 0.75rem;
-                right: 0.75rem;
+            .lightbox-card .lightbox-company {
+                font-size: 0.6rem;
+                font-weight: 500;
             }
 
             /* ─── Rest of mobile styles ─── */
@@ -1704,35 +1731,47 @@
                 padding: 2rem 0 1rem;
                 margin-top: 2rem;
             }
+            .footer-simple .brand-logo img {
+                height: 34px;
+            }
         }
 
-        @media (max-width: 400px) {
-            /* ─── Very small phones: even larger lightbox proportion ─── */
-            .lightbox-card {
-                max-width: 95vw;
-                padding: 1rem;
+        @media (max-width: 480px) {
+            .brand-logo img {
+                height: 28px;
             }
-            .lightbox-media {
-                max-width: 200px; /* Slightly smaller but still much bigger than 170px */
+            .modal-overlay#testimonialLightbox .modal-card.lightbox-card {
+                padding: 0.3rem 0.3rem env(safe-area-inset-bottom, 0.3rem);
+                gap: 0.4rem;
             }
-            .lightbox-quote {
-                font-size: 0.85rem;
+            .lightbox-card .lightbox-media {
+                max-width: 150px;
+                border-radius: 12px;
+                border-width: 2px;
             }
-            .lightbox-name {
-                font-size: 0.95rem;
+            .lightbox-card .lightbox-content {
+                gap: 0.2rem;
             }
-            .lightbox-company {
-                font-size: 0.75rem;
+            .lightbox-card .lightbox-quote {
+                font-size: 0.62rem;
+                line-height: 1.4;
+                margin-bottom: 0.1rem;
             }
-            .modal-card {
-                padding: 1rem;
+            .lightbox-card .lightbox-name {
+                font-size: 0.65rem;
             }
-            .modal-close {
+            .lightbox-card .lightbox-company {
+                font-size: 0.55rem;
+            }
+            .lightbox-card .lightbox-author {
+                padding-top: 0.25rem;
+            }
+            .modal-overlay#testimonialLightbox .modal-close {
                 width: 36px;
                 height: 36px;
                 font-size: 1rem;
-                top: 0.5rem;
-                right: 0.5rem;
+                top: 0.3rem;
+                right: 0.3rem;
             }
 
             .container {
@@ -1811,6 +1850,38 @@
             .process-number {
                 font-size: 1.6rem;
             }
+            .footer-simple .brand-logo img {
+                height: 28px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .modal-overlay#testimonialLightbox .modal-card.lightbox-card {
+                padding: 0.2rem 0.2rem env(safe-area-inset-bottom, 0.2rem);
+                gap: 0.3rem;
+            }
+            .lightbox-card .lightbox-media {
+                max-width: 120px;
+                border-radius: 10px;
+            }
+            .lightbox-card .lightbox-quote {
+                font-size: 0.55rem;
+                line-height: 1.3;
+                margin-bottom: 0.05rem;
+            }
+            .lightbox-card .lightbox-name {
+                font-size: 0.6rem;
+            }
+            .lightbox-card .lightbox-company {
+                font-size: 0.5rem;
+            }
+            .modal-overlay#testimonialLightbox .modal-close {
+                width: 32px;
+                height: 32px;
+                font-size: 0.85rem;
+                top: 0.2rem;
+                right: 0.2rem;
+            }
         }
     </style>
 </head>
@@ -1820,7 +1891,7 @@
     <header class="navbar">
         <nav class="nav-container">
             <a href="#home" class="brand-logo">
-                <div class="logo-box">KW</div>
+                <img src="img-logo/KW Logo.png" alt="Kotak Wayang Studio Logo" />
                 <span>KOTAK WAYANG STUDIO</span>
             </a>
 
@@ -2153,7 +2224,7 @@
         <div class="container">
             <div class="footer-simple">
                 <a href="#home" class="brand-logo" style="margin-bottom:0.75rem;">
-                    <div class="logo-box">KW</div>
+                    <img src="img-logo/KW Logo.png" alt="Kotak Wayang Studio Logo" />
                     <span>KOTAK WAYANG STUDIO</span>
                 </a>
                 <p style="color:#64748B; font-size:0.85rem; max-width:420px; line-height:1.5;">Malaysia's premier livestream studio setup engineers. Building world-class broadcast setups for e-commerce brands and creators.</p>
