@@ -151,11 +151,38 @@
             white-space: nowrap;
         }
 
-        .brand-logo img {
+        /* ─── Logo Box with Image ─── */
+        .logo-box {
+            width: 38px;
             height: 38px;
-            width: auto;
+            background: var(--primary-violet);
+            border: 2px solid var(--border-dark);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 2px 0px var(--border-dark);
+            transition: var(--transition-bounce);
             flex-shrink: 0;
+            overflow: hidden;
+            padding: 4px;
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             display: block;
+        }
+
+        .brand-logo:hover .logo-box {
+            transform: rotate(6deg) scale(1.1);
+            background: var(--secondary-pink);
+        }
+
+        /* ─── Active/press state ─── */
+        .brand-logo:active .logo-box {
+            transform: rotate(-3deg) scale(0.95);
         }
 
         .brand-logo span {
@@ -163,11 +190,6 @@
             overflow: hidden;
             text-overflow: ellipsis;
             min-width: 0;
-        }
-
-        /* Remove old .logo-box styles since we're using an image */
-        .logo-box {
-            display: none;
         }
 
         .nav-links {
@@ -298,10 +320,12 @@
             display: inline;
         }
 
-        /* ─── Responsive adjustments for logo image ─── */
+        /* ─── Responsive adjustments for logo box ─── */
         @media (max-width: 1024px) {
-            .brand-logo img {
+            .logo-box {
+                width: 34px;
                 height: 34px;
+                padding: 3px;
             }
             .nav-links {
                 display: none !important;
@@ -340,8 +364,10 @@
         }
 
         @media (max-width: 480px) {
-            .brand-logo img {
+            .logo-box {
+                width: 28px;
                 height: 28px;
+                padding: 2px;
             }
             .navbar {
                 padding: 0 0.6rem;
@@ -1348,9 +1374,10 @@
             margin-bottom: 1.5rem;
         }
 
-        .footer-simple .brand-logo img {
+        .footer-simple .logo-box {
+            width: 38px;
             height: 38px;
-            width: auto;
+            padding: 4px;
         }
 
         .footer-bottom {
@@ -1411,9 +1438,10 @@
             .testimonial-marquee-row {
                 padding: 12px 0;
             }
-            /* footer logo size */
-            .footer-simple .brand-logo img {
+            .footer-simple .logo-box {
+                width: 34px;
                 height: 34px;
+                padding: 3px;
             }
         }
 
@@ -1731,14 +1759,18 @@
                 padding: 2rem 0 1rem;
                 margin-top: 2rem;
             }
-            .footer-simple .brand-logo img {
+            .footer-simple .logo-box {
+                width: 34px;
                 height: 34px;
+                padding: 3px;
             }
         }
 
         @media (max-width: 480px) {
-            .brand-logo img {
+            .logo-box {
+                width: 28px;
                 height: 28px;
+                padding: 2px;
             }
             .modal-overlay#testimonialLightbox .modal-card.lightbox-card {
                 padding: 0.3rem 0.3rem env(safe-area-inset-bottom, 0.3rem);
@@ -1850,8 +1882,10 @@
             .process-number {
                 font-size: 1.6rem;
             }
-            .footer-simple .brand-logo img {
+            .footer-simple .logo-box {
+                width: 28px;
                 height: 28px;
+                padding: 2px;
             }
         }
 
@@ -1891,7 +1925,9 @@
     <header class="navbar">
         <nav class="nav-container">
             <a href="#home" class="brand-logo">
-                <img src="img-logo/KW Logo.png" alt="Kotak Wayang Studio Logo" />
+                <div class="logo-box">
+                    <img src="img-logo/KW Logo.png" alt="Kotak Wayang Studio Logo" />
+                </div>
                 <span>KOTAK WAYANG STUDIO</span>
             </a>
 
@@ -2224,7 +2260,9 @@
         <div class="container">
             <div class="footer-simple">
                 <a href="#home" class="brand-logo" style="margin-bottom:0.75rem;">
-                    <img src="img-logo/KW Logo.png" alt="Kotak Wayang Studio Logo" />
+                    <div class="logo-box">
+                        <img src="img-logo/KW Logo.png" alt="Kotak Wayang Studio Logo" />
+                    </div>
                     <span>KOTAK WAYANG STUDIO</span>
                 </a>
                 <p style="color:#64748B; font-size:0.85rem; max-width:420px; line-height:1.5;">Malaysia's premier livestream studio setup engineers. Building world-class broadcast setups for e-commerce brands and creators.</p>
