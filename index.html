@@ -165,23 +165,20 @@
             transition: var(--transition-bounce);
             flex-shrink: 0;
             overflow: hidden;
-            padding: 0; /* remove padding so image fills completely */
+            padding: 0;
         }
 
         .logo-box img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* ensure image fills the box without distortion */
+            object-fit: cover;
             display: block;
         }
 
-        /* Hover: rotate and scale, but no background color change */
         .brand-logo:hover .logo-box {
             transform: rotate(6deg) scale(1.1);
-            /* background change removed */
         }
 
-        /* Active/press state */
         .brand-logo:active .logo-box {
             transform: rotate(-3deg) scale(0.95);
         }
@@ -321,7 +318,6 @@
             display: inline;
         }
 
-        /* ─── Responsive adjustments for logo box ─── */
         @media (max-width: 1024px) {
             .logo-box {
                 width: 34px;
@@ -1443,7 +1439,6 @@
         }
 
         @media (max-width: 768px) {
-            /* ─── LIGHTBOX: FULL SCREEN on mobile ─── */
             .modal-overlay#testimonialLightbox {
                 padding: 0;
                 background: rgba(30, 41, 59, 0.92);
@@ -1526,7 +1521,6 @@
                 font-weight: 500;
             }
 
-            /* ─── Rest of mobile styles ─── */
             .navbar {
                 top: 0.75rem;
                 padding: 0 0.8rem;
@@ -2707,7 +2701,7 @@
             const phone = document.getElementById('phoneNum').value;
             const platform = document.getElementById('platformSelect').value;
             const notes = document.getElementById('notes').value;
-            const waNumber = '601123456789';
+            const waNumber = '60135888385'; // Updated WhatsApp number
             const messageLines = [
                 "Hi Kotak Wayang Studio! I'd like to book a free consultation.",
                 "",
