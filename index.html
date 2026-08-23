@@ -5,10 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>Kotak Wayang Studio</title>
     <meta name="description" content="Malaysia's premier livestream studio setup engineers. We build high-converting, professional studio setups for TikTok Shop, Shopee Live, and corporate broadcasting." />
-<!-- ═══ Description website here ═══ -->
+    <!-- ═══ Description website here ═══ -->
     
         <!-- ═══ ICON tab browser – ADD HERE ═══ -->
     <link rel="icon" type="image/png" href="img-logo/KW-Icon.png" />
+
+    <!-- ═══ Social Media Thumbnail ═══ -->
+    <meta property="og:title" content="Kotak Wayang Studio" />
+    <meta property="og:description" content="Malaysia's premier livestream studio setup engineers. We build high-converting, professional studio setups for TikTok Shop, Shopee Live, and corporate broadcasting." />
+    <meta property="og:image" content="img-logo/KW-tumbnail.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- ═══ JAVASCRIPT: auto-convert to absolute URL (tanpa domain hardcode) ═══ -->
+    <script>
+        (function() {
+            var ogImage = document.querySelector('meta[property="og:image"]');
+            if (ogImage && ogImage.content && !ogImage.content.startsWith('http')) {
+                var domain = window.location.origin;
+                var path = ogImage.content.replace(/^\/+/, '');
+                ogImage.content = domain + '/' + path;
+            }
+        })();
+    </script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1140,7 +1162,7 @@
             font-weight: 600;
         }
 
-        /* ─── LIGHTBOX ─── */
+        /* ─── LIGHTBOX ─── (DIKEMASKINI MENGIKUT FILE KEDUA) */
         .lightbox-card {
             max-width: 780px;
             width: 100%;
@@ -1443,86 +1465,34 @@
         }
 
         @media (max-width: 768px) {
-            .modal-overlay#testimonialLightbox {
-                padding: 0;
-                background: rgba(30, 41, 59, 0.92);
-                backdrop-filter: blur(4px);
-            }
-            .modal-overlay#testimonialLightbox .modal-card.lightbox-card {
-                max-width: 100vw;
-                max-height: 100dvh;
-                width: 100vw;
-                height: 100dvh;
-                border-radius: 0;
-                border: none;
-                box-shadow: none;
-                padding: 0.5rem 0.5rem env(safe-area-inset-bottom, 0.5rem);
-                transform: scale(1);
-                background: var(--bg-paper);
-                display: flex;
+            /* ─── LIGHTBOX MOBILE (dari file kedua) ─── */
+            .lightbox-card {
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 0.5rem;
-                overflow-y: auto;
-            }
-            .modal-overlay#testimonialLightbox .modal-close {
-                position: absolute;
-                top: 0.5rem;
-                right: 0.5rem;
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-                z-index: 10;
-                background: rgba(255, 255, 255, 0.9);
-                border: 2px solid var(--border-dark);
-                box-shadow: 2px 2px 0px var(--border-dark);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .lightbox-card .lightbox-media {
-                flex: 0 0 auto;
-                max-width: 180px;
-                width: 100%;
-                margin: 0 auto;
-                border-radius: 14px;
-                border: 2px solid var(--border-dark);
-                box-shadow: var(--shadow-sticker);
-            }
-            .lightbox-card .lightbox-media img,
-            .lightbox-card .lightbox-media video {
-                width: 100%;
-                height: auto;
-                aspect-ratio: 9 / 18;
-                object-fit: cover;
-            }
-            .lightbox-card .lightbox-content {
-                gap: 0.3rem;
-                padding: 0 0.2rem;
+                padding: 1.25rem;
+                gap: 1rem;
+                max-width: 78vw;
                 text-align: center;
-                max-width: 90%;
             }
-            .lightbox-card .lightbox-quote {
-                font-size: 0.72rem;
-                line-height: 1.5;
-                margin-bottom: 0.2rem;
-                font-weight: 500;
+            .lightbox-media {
+                flex: 0 0 auto;
+                max-width: 170px;
+                margin: 0 auto;
+                border-radius: 20px;
             }
-            .lightbox-card .lightbox-author {
-                padding-top: 0.4rem;
-                border-top: 1px dashed var(--border-light);
+            .lightbox-author {
                 align-items: center;
-                gap: 0.1rem;
+                padding-top: 0.75rem;
             }
-            .lightbox-card .lightbox-name {
+            .lightbox-quote {
+                font-size: 0.82rem;
+                margin-bottom: 0.85rem;
+                line-height: 1.5;
+            }
+            .lightbox-name {
+                font-size: 0.92rem;
+            }
+            .lightbox-company {
                 font-size: 0.72rem;
-                font-weight: 800;
-            }
-            .lightbox-card .lightbox-company {
-                font-size: 0.6rem;
-                font-weight: 500;
             }
 
             .navbar {
@@ -1765,38 +1735,13 @@
                 width: 28px;
                 height: 28px;
             }
-            .modal-overlay#testimonialLightbox .modal-card.lightbox-card {
-                padding: 0.3rem 0.3rem env(safe-area-inset-bottom, 0.3rem);
-                gap: 0.4rem;
+            
+            .lightbox-card {
+                max-width: 82vw;
+                padding: 1rem;
             }
-            .lightbox-card .lightbox-media {
-                max-width: 150px;
-                border-radius: 12px;
-                border-width: 2px;
-            }
-            .lightbox-card .lightbox-content {
-                gap: 0.2rem;
-            }
-            .lightbox-card .lightbox-quote {
-                font-size: 0.62rem;
-                line-height: 1.4;
-                margin-bottom: 0.1rem;
-            }
-            .lightbox-card .lightbox-name {
-                font-size: 0.65rem;
-            }
-            .lightbox-card .lightbox-company {
-                font-size: 0.55rem;
-            }
-            .lightbox-card .lightbox-author {
-                padding-top: 0.25rem;
-            }
-            .modal-overlay#testimonialLightbox .modal-close {
-                width: 36px;
-                height: 36px;
-                font-size: 1rem;
-                top: 0.3rem;
-                right: 0.3rem;
+            .lightbox-media {
+                max-width: 145px;
             }
 
             .container {
@@ -1882,31 +1827,21 @@
         }
 
         @media (max-width: 380px) {
-            .modal-overlay#testimonialLightbox .modal-card.lightbox-card {
-                padding: 0.2rem 0.2rem env(safe-area-inset-bottom, 0.2rem);
-                gap: 0.3rem;
+            .lightbox-card {
+                max-width: 85vw;
+                padding: 0.8rem;
             }
-            .lightbox-card .lightbox-media {
-                max-width: 120px;
-                border-radius: 10px;
+            .lightbox-media {
+                max-width: 125px;
             }
-            .lightbox-card .lightbox-quote {
-                font-size: 0.55rem;
-                line-height: 1.3;
-                margin-bottom: 0.05rem;
+            .lightbox-quote {
+                font-size: 0.7rem;
             }
-            .lightbox-card .lightbox-name {
-                font-size: 0.6rem;
+            .lightbox-name {
+                font-size: 0.8rem;
             }
-            .lightbox-card .lightbox-company {
-                font-size: 0.5rem;
-            }
-            .modal-overlay#testimonialLightbox .modal-close {
-                width: 32px;
-                height: 32px;
-                font-size: 0.85rem;
-                top: 0.2rem;
-                right: 0.2rem;
+            .lightbox-company {
+                font-size: 0.65rem;
             }
         }
     </style>
@@ -2705,7 +2640,7 @@
             const phone = document.getElementById('phoneNum').value;
             const platform = document.getElementById('platformSelect').value;
             const notes = document.getElementById('notes').value;
-            const waNumber = '60135888385'; // Updated WhatsApp number
+            const waNumber = '60135888385';
             const messageLines = [
                 "Hi Kotak Wayang Studio! I'd like to book a free consultation.",
                 "",
