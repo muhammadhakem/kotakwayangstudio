@@ -11,26 +11,22 @@
     <link rel="icon" type="image/png" href="img-logo/KW-Icon.png" />
 
     <!-- ═══ Social Media Thumbnail ═══ -->
+    <!-- NOTE: og:image/og:url must be absolute URLs — crawlers (Facebook, WhatsApp,
+         Telegram, LinkedIn, Twitter/X, Discord) read raw HTML and never run JS,
+         so a JS-based relative→absolute conversion never reaches them.
+         When you move to a custom domain, just swap the domain below. -->
     <meta property="og:title" content="Kotak Wayang Studio" />
     <meta property="og:description" content="Malaysia's premier livestream studio setup engineers. We build high-converting, professional studio setups for TikTok Shop, Shopee Live, and corporate broadcasting." />
-    <meta property="og:image" content="img-logo/KW-tumbnail.png" />
+    <meta property="og:url" content="https://muhammadhakem.github.io/kotakwayangstudio/" />
+    <meta property="og:image" content="https://muhammadhakem.github.io/kotakwayangstudio/img-logo/KW-tumbnail.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-
-    <!-- ═══ JAVASCRIPT: auto-convert to absolute URL (tanpa domain hardcode) ═══ -->
-    <script>
-        (function() {
-            var ogImage = document.querySelector('meta[property="og:image"]');
-            if (ogImage && ogImage.content && !ogImage.content.startsWith('http')) {
-                var domain = window.location.origin;
-                var path = ogImage.content.replace(/^\/+/, '');
-                ogImage.content = domain + '/' + path;
-            }
-        })();
-    </script>
+    <meta name="twitter:title" content="Kotak Wayang Studio" />
+    <meta name="twitter:description" content="Malaysia's premier livestream studio setup engineers. We build high-converting, professional studio setups for TikTok Shop, Shopee Live, and corporate broadcasting." />
+    <meta name="twitter:image" content="https://muhammadhakem.github.io/kotakwayangstudio/img-logo/KW-tumbnail.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
