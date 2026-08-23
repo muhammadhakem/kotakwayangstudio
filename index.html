@@ -1162,7 +1162,7 @@
             font-weight: 600;
         }
 
-        /* ─── LIGHTBOX ─── (DIKEMASKINI MENGIKUT FILE KEDUA) */
+        /* ─── LIGHTBOX ─── (DESKTOP) */
         .lightbox-card {
             max-width: 780px;
             width: 100%;
@@ -1465,36 +1465,97 @@
         }
 
         @media (max-width: 768px) {
-            /* ─── LIGHTBOX MOBILE ─── */
+            /* ─── LIGHTBOX MOBILE: 60% frame, proper spacing ─── */
             .lightbox-card {
                 flex-direction: column;
-                padding: 1.25rem;
-                gap: 1rem;
-                max-width: 78vw;
+                padding: 0.75rem 0.75rem 1rem;
+                gap: 0.75rem;
+                max-width: 94vw;
+                max-height: 94dvh;
+                width: 94vw;
+                height: auto;
+                border-radius: var(--radius-md);
                 text-align: center;
+                justify-content: flex-start;
+                overflow-y: auto;
+                background: var(--bg-paper);
+                border: 3px solid var(--border-dark);
+                box-shadow: var(--shadow-sticker-lg);
+                margin: 0 auto;
             }
             .lightbox-media {
                 flex: 0 0 auto;
-                max-width: 170px;
-                margin: 0 auto;
-                border-radius: 20px;
+                width: 100%;
+                max-width: 60vw;              /* 60% of screen width */
+                margin: 1.25rem auto 0;        /* top gap between modal and frame */
+                border-radius: 16px;
+                border: 2px solid var(--border-dark);
+                box-shadow: var(--shadow-sticker);
+                aspect-ratio: 9 / 18;
+                overflow: hidden;
+                background: linear-gradient(180deg, #1E1B4B 0%, #0F172A 100%);
             }
-            .lightbox-author {
-                align-items: center;
-                padding-top: 0.75rem;
+            .lightbox-media img,
+            .lightbox-media video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+            .lightbox-content {
+                gap: 0.4rem;
+                padding: 0 0.3rem;
+                max-width: 100%;
+                margin-top: 0.5rem;          /* spacing between frame and feedback */
             }
             .lightbox-quote {
-                font-size: 0.82rem;
-                margin-bottom: 0.85rem;
+                font-size: 0.85rem;
                 line-height: 1.5;
+                margin-bottom: 0.3rem;
+                font-weight: 500;
+                color: #334155;
+            }
+            .lightbox-author {
+                padding-top: 0.5rem;
+                border-top: 1px dashed var(--border-light);
+                align-items: center;
+                gap: 0.1rem;
             }
             .lightbox-name {
-                font-size: 0.92rem;
+                font-size: 0.95rem;
+                font-weight: 800;
+                color: var(--fg-slate);
             }
             .lightbox-company {
-                font-size: 0.72rem;
+                font-size: 0.75rem;
+                font-weight: 500;
+                color: #64748B;
             }
 
+            .modal-overlay#testimonialLightbox {
+                padding: 0.5rem;
+                background: rgba(30, 41, 59, 0.85);
+                backdrop-filter: blur(4px);
+            }
+            .modal-overlay#testimonialLightbox .modal-close {
+                position: absolute;
+                top: 0.6rem;
+                right: 0.6rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+                z-index: 10;
+                background: rgba(255, 255, 255, 0.95);
+                border: 2px solid var(--border-dark);
+                box-shadow: 2px 2px 0px var(--border-dark);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+
+            /* ─── Rest of mobile styles ─── */
             .navbar {
                 top: 0.75rem;
                 padding: 0 0.8rem;
@@ -1737,11 +1798,34 @@
             }
             
             .lightbox-card {
-                max-width: 82vw;
-                padding: 1rem;
+                padding: 0.5rem 0.5rem 0.75rem;
+                gap: 0.5rem;
+                max-width: 96vw;
+                max-height: 96dvh;
+                width: 96vw;
             }
             .lightbox-media {
-                max-width: 145px;
+                max-width: 65vw;           /* slightly larger for very small screens */
+                margin-top: 0.3rem;
+            }
+            .lightbox-content {
+                margin-top: 0.15rem;
+            }
+            .lightbox-quote {
+                font-size: 0.78rem;
+            }
+            .lightbox-name {
+                font-size: 0.85rem;
+            }
+            .lightbox-company {
+                font-size: 0.7rem;
+            }
+            .modal-overlay#testimonialLightbox .modal-close {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+                top: 0.4rem;
+                right: 0.4rem;
             }
 
             .container {
@@ -1828,20 +1912,29 @@
 
         @media (max-width: 380px) {
             .lightbox-card {
-                max-width: 85vw;
-                padding: 0.8rem;
+                padding: 0.3rem 0.3rem 0.5rem;
+                gap: 0.3rem;
+                max-height: 98dvh;
             }
             .lightbox-media {
-                max-width: 125px;
+                max-width: 70vw;
+                margin-top: 0.2rem;
             }
             .lightbox-quote {
                 font-size: 0.7rem;
             }
             .lightbox-name {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
             .lightbox-company {
-                font-size: 0.65rem;
+                font-size: 0.6rem;
+            }
+            .modal-overlay#testimonialLightbox .modal-close {
+                width: 32px;
+                height: 32px;
+                font-size: 0.85rem;
+                top: 0.3rem;
+                right: 0.3rem;
             }
         }
     </style>
