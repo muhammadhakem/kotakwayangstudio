@@ -1465,7 +1465,7 @@
         }
 
         @media (max-width: 768px) {
-            /* ─── LIGHTBOX MOBILE: 60% frame, responsive height ─── */
+            /* ─── LIGHTBOX MOBILE: dengan spacing yang diadjust ─── */
             .lightbox-card {
                 flex-direction: column;
                 padding: 0.5rem 0.5rem 0.75rem;
@@ -1487,7 +1487,7 @@
                 flex: 0 0 auto;
                 width: 100%;
                 max-width: 60vw;
-                margin: 1.5rem auto 0;         /* top margin for the frame */
+                margin: 1rem auto 0;      /* ⬅️ JARAK ATAS FRAME DARI BAHAGIAN ATAS MODAL (tukar nilai ni) */
                 border-radius: 16px;
                 border: 2px solid var(--border-dark);
                 box-shadow: var(--shadow-sticker);
@@ -1506,13 +1506,13 @@
                 gap: 0.5rem;
                 padding: 0 0.2rem 0.2rem;
                 max-width: 100%;
-                margin-top: 0.75rem;         /* top margin for the content */
+                margin-top: 0.75rem;       /* ⬅️ JARAK ANTARA FRAME & QUOTE (tukar nilai ni) */
                 flex-shrink: 0;
             }
             .lightbox-quote {
                 font-size: 0.82rem;
                 line-height: 1.5;
-                margin-bottom: 0.4rem;
+                margin-bottom: 0.5rem;
                 font-weight: 500;
                 color: #334155;
             }
@@ -1520,7 +1520,7 @@
                 padding-top: 0.5rem;
                 border-top: 1px dashed var(--border-light);
                 align-items: center;
-                gap: 0.15rem;
+                gap: 0.2rem;
             }
             .lightbox-name {
                 font-size: 0.9rem;
@@ -1807,16 +1807,16 @@
             }
             .lightbox-media {
                 max-width: 65vw;
-                margin-top: 0.2rem;
+                margin-top: 0.75rem;       /* ⬅️ JARAK ATAS FRAME (lebih kecil) */
             }
             .lightbox-content {
                 gap: 0.3rem;
-                margin-top: 0.1rem;
+                margin-top: 0.6rem;        /* ⬅️ JARAK FRAME-QUOTE */
                 padding: 0 0.1rem 0.1rem;
             }
             .lightbox-quote {
                 font-size: 0.72rem;
-                margin-bottom: 0.3rem;
+                margin-bottom: 0.4rem;
             }
             .lightbox-name {
                 font-size: 0.8rem;
@@ -1922,11 +1922,14 @@
             }
             .lightbox-media {
                 max-width: 70vw;
-                margin-top: 0.15rem;
+                margin-top: 0.5rem;
+            }
+            .lightbox-content {
+                margin-top: 0.4rem;
             }
             .lightbox-quote {
                 font-size: 0.65rem;
-                margin-bottom: 0.2rem;
+                margin-bottom: 0.3rem;
             }
             .lightbox-name {
                 font-size: 0.7rem;
