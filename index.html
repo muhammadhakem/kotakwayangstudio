@@ -1075,7 +1075,7 @@
         .trusted-marquee-wrap {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 0.55rem;
             max-width: 100%;
             margin: 0.5rem auto 0;
             user-select: none;
@@ -1088,7 +1088,7 @@
             position: relative;
             cursor: grab;
             touch-action: none;
-            padding: 15px 0 12px 0;   /* 👈 more top padding for hover room */
+            padding: 12px 0 6px 0;
             -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
             mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
             -webkit-mask-composite: source-over;
@@ -1101,7 +1101,7 @@
 
         .trusted-marquee-track {
             display: flex;
-            gap: 2rem;
+            gap: 1.2rem;
             width: max-content;
             will-change: transform;
             pointer-events: none;
@@ -1113,16 +1113,16 @@
             cursor: grabbing;
         }
 
-        /* ─── BIGGER CIRCLE FRAME + ENHANCED POPUP ─── */
+        /* ─── COMPACT CIRCLE — VERY VERY THIN BORDER ─── */
         .trusted-brand-item {
             flex: 0 0 auto;
-            width: 160px;
+            width: 118px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            gap: 0.7rem;
-            padding: 1rem 0.8rem;
+            gap: 0.45rem;
+            padding: 0.55rem 0.5rem;
             background: var(--surface-white);
             border: 2px solid var(--border-dark);
             border-radius: var(--radius-lg);
@@ -1137,26 +1137,26 @@
         }
 
         .trusted-brand-item:hover {
-            transform: translateY(-12px) scale(1.04);
-            box-shadow: 10px 14px 0px var(--border-dark), 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 5px 7px 0px var(--border-dark), 0 12px 24px -10px rgba(0, 0, 0, 0.22);
             border-color: var(--primary-violet);
             z-index: 5;
         }
 
         .trusted-brand-item .brand-icon {
-            width: 80px;
-            height: 80px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            border: 2.5px solid var(--border-dark);
+            border: 0.4px solid rgba(30, 41, 59, 0.35);        /* very very thin */
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: var(--font-heading);
             font-weight: 900;
-            font-size: 1.8rem;
+            font-size: 1.15rem;
             color: var(--surface-white);
             flex-shrink: 0;
-            box-shadow: 3px 3px 0px var(--border-dark);
+            box-shadow: 1.5px 1.5px 0px rgba(30, 41, 59, 0.85);
             overflow: hidden;
             background: var(--brand-color, #ccc);
             transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
@@ -1165,9 +1165,9 @@
         }
 
         .trusted-brand-item:hover .brand-icon {
-            transform: scale(1.08) rotate(-4deg);
-            box-shadow: 5px 5px 0px var(--border-dark), 0 0 0 4px var(--highlight-yellow);
-            border-color: var(--primary-violet);
+            transform: scale(1.05) rotate(-3deg);
+            border-color: rgba(139, 92, 246, 0.9);
+            box-shadow: 2.6px 2.6px 0px var(--border-dark), 0 0 0 2.9px var(--highlight-yellow);
         }
 
         .trusted-brand-item .brand-icon img {
@@ -1185,11 +1185,11 @@
         .trusted-brand-item .brand-name {
             font-family: var(--font-heading);
             font-weight: 700;
-            font-size: 0.75rem;
+            font-size: 0.62rem;
             color: var(--fg-slate);
             text-align: center;
             line-height: 1.3;
-            max-width: 120px;
+            max-width: 90px;
             margin-top: 0;
             transition: color 0.25s ease;
         }
@@ -1213,7 +1213,7 @@
         .trusted-brand-item:hover::after {
             opacity: 1;
             background: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.15), transparent 70%);
-            inset: -8px;
+            inset: -5px;
         }
 
         /* ─── TESTIMONIAL INFINITE MARQUEE ─── */
@@ -1662,23 +1662,37 @@
             .why-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .trusted-marquee-wrap {
+                gap: 0.45rem;
+            }
+            .trusted-marquee-row {
+                padding: 11px 0 6px 0;
+            }
             .trusted-brand-item {
-                width: 140px;
-                padding: 0.8rem 0.6rem;
-                gap: 0.6rem;
+                width: 105px;
+                padding: 0.5rem 0.45rem;
+                gap: 0.4rem;
+                border-width: 1.5px;
             }
             .trusted-brand-item .brand-icon {
-                width: 68px;
-                height: 68px;
-                font-size: 1.5rem;
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+                border-width: 0.35px;
+                border-color: rgba(30, 41, 59, 0.35);
+                box-shadow: 1.3px 1.3px 0px rgba(30, 41, 59, 0.85);
+            }
+            .trusted-brand-item:hover .brand-icon {
+                border-color: rgba(139, 92, 246, 0.9);
+                box-shadow: 2.3px 2.3px 0px var(--border-dark), 0 0 0 2.6px var(--highlight-yellow);
             }
             .trusted-brand-item .brand-name {
-                font-size: 0.7rem;
-                max-width: 100px;
+                font-size: 0.58rem;
+                max-width: 78px;
                 line-height: 1.3;
             }
             .trusted-marquee-track {
-                gap: 1.5rem;
+                gap: 1rem;
             }
             .testimonial-marquee-track {
                 gap: 1rem;
@@ -1935,16 +1949,25 @@
                 font-size: 0.75rem;
             }
 
+            .trusted-marquee-wrap {
+                gap: 0.3rem;
+            }
+            .trusted-marquee-row {
+                padding: 9px 0 5px 0;
+            }
             .trusted-brand-item {
-                width: 120px;
-                padding: 0.7rem 0.5rem;
-                gap: 0.5rem;
+                width: 90px;
+                padding: 0.45rem 0.35rem;
+                gap: 0.35rem;
+                border-width: 1px;
             }
             .trusted-brand-item .brand-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.3rem;
-                border-width: 2px;
+                width: 38px;
+                height: 38px;
+                font-size: 0.9rem;
+                border-width: 0.25px;
+                border-color: rgba(30, 41, 59, 0.3);
+                box-shadow: 1.2px 1.2px 0px rgba(30, 41, 59, 0.85);
             }
             .trusted-brand-item .brand-icon img {
                 width: 100%;
@@ -1952,21 +1975,22 @@
                 object-fit: contain;
             }
             .trusted-brand-item .brand-name {
-                font-size: 0.6rem;
-                max-width: 90px;
+                font-size: 0.5rem;
+                max-width: 68px;
                 line-height: 1.3;
                 margin-top: 0;
             }
             .trusted-brand-item:hover {
-                transform: translateY(-8px) scale(1.03);
-                box-shadow: 6px 10px 0px var(--border-dark), 0 15px 30px -10px rgba(0, 0, 0, 0.25);
+                transform: translateY(-3px) scale(1.02);
+                box-shadow: 4px 5px 0px var(--border-dark), 0 10px 20px -8px rgba(0, 0, 0, 0.2);
             }
             .trusted-brand-item:hover .brand-icon {
-                transform: scale(1.05) rotate(-3deg);
-                box-shadow: 4px 4px 0px var(--border-dark), 0 0 0 3px var(--highlight-yellow);
+                transform: scale(1.04) rotate(-2deg);
+                border-color: rgba(139, 92, 246, 0.9);
+                box-shadow: 2.1px 2.1px 0px var(--border-dark), 0 0 0 2.4px var(--highlight-yellow);
             }
             .trusted-marquee-track {
-                gap: 1.2rem;
+                gap: 0.8rem;
             }
 
             .comparison-wrapper {
@@ -2132,16 +2156,25 @@
                 padding: 0.25rem 0.6rem;
             }
 
+            .trusted-marquee-wrap {
+                gap: 0.2rem;
+            }
+            .trusted-marquee-row {
+                padding: 8px 0 4px 0;
+            }
             .trusted-brand-item {
-                width: 100px;
-                padding: 0.5rem 0.3rem;
-                gap: 0.4rem;
+                width: 76px;
+                padding: 0.35rem 0.25rem;
+                gap: 0.3rem;
+                border-width: 0.8px;
             }
             .trusted-brand-item .brand-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.1rem;
-                border-width: 2px;
+                width: 34px;
+                height: 34px;
+                font-size: 0.78rem;
+                border-width: 0.2px;
+                border-color: rgba(30, 41, 59, 0.28);
+                box-shadow: 1.05px 1.05px 0px rgba(30, 41, 59, 0.85);
             }
             .trusted-brand-item .brand-icon img {
                 width: 100%;
@@ -2149,24 +2182,22 @@
                 object-fit: contain;
             }
             .trusted-brand-item .brand-name {
-                font-size: 0.55rem;
-                max-width: 80px;
+                font-size: 0.45rem;
+                max-width: 58px;
                 line-height: 1.3;
                 margin-top: 0;
             }
             .trusted-brand-item:hover {
-                transform: translateY(-6px) scale(1.02);
-                box-shadow: 4px 8px 0px var(--border-dark), 0 10px 20px -8px rgba(0, 0, 0, 0.2);
+                transform: translateY(-3px) scale(1.02);
+                box-shadow: 3px 4px 0px var(--border-dark), 0 8px 16px -6px rgba(0, 0, 0, 0.18);
             }
             .trusted-brand-item:hover .brand-icon {
                 transform: scale(1.04) rotate(-2deg);
-                box-shadow: 3px 3px 0px var(--border-dark), 0 0 0 3px var(--highlight-yellow);
+                border-color: rgba(139, 92, 246, 0.9);
+                box-shadow: 1.85px 1.85px 0px var(--border-dark), 0 0 0 2.1px var(--highlight-yellow);
             }
             .trusted-marquee-track {
-                gap: 0.8rem;
-            }
-            .trusted-marquee-row {
-                padding: padding: 8px 0;
+                gap: 0.7rem;
             }
 
             .comparison-wrapper {
@@ -2293,16 +2324,25 @@
                 top: 0.2rem;
                 right: 0.2rem;
             }
+            .trusted-marquee-wrap {
+                gap: 0.15rem;
+            }
+            .trusted-marquee-row {
+                padding: 7px 0 4px 0;
+            }
             .trusted-brand-item {
-                width: 85px;
-                padding: 0.4rem 0.2rem;
-                gap: 0.3rem;
+                width: 64px;
+                padding: 0.3rem 0.15rem;
+                gap: 0.25rem;
+                border-width: 0.7px;
             }
             .trusted-brand-item .brand-icon {
-                width: 42px;
-                height: 42px;
-                font-size: 0.9rem;
-                border-width: 1.5px;
+                width: 30px;
+                height: 30px;
+                font-size: 0.68rem;
+                border-width: 0.15px;
+                border-color: rgba(30, 41, 59, 0.25);
+                box-shadow: 0.94px 0.94px 0px rgba(30, 41, 59, 0.85);
             }
             .trusted-brand-item .brand-icon img {
                 width: 100%;
@@ -2310,21 +2350,22 @@
                 object-fit: contain;
             }
             .trusted-brand-item .brand-name {
-                font-size: 0.45rem;
-                max-width: 65px;
+                font-size: 0.42rem;
+                max-width: 52px;
                 line-height: 1.2;
                 margin-top: 0;
             }
             .trusted-brand-item:hover {
-                transform: translateY(-4px) scale(1.02);
-                box-shadow: 3px 6px 0px var(--border-dark);
+                transform: translateY(-2px) scale(1.02);
+                box-shadow: 2px 3px 0px var(--border-dark);
             }
             .trusted-brand-item:hover .brand-icon {
                 transform: scale(1.03) rotate(-2deg);
-                box-shadow: 2px 2px 0px var(--border-dark), 0 0 0 2px var(--highlight-yellow);
+                border-color: rgba(139, 92, 246, 0.9);
+                box-shadow: 1.6px 1.6px 0px var(--border-dark), 0 0 0 1.8px var(--highlight-yellow);
             }
             .trusted-marquee-track {
-                gap: 0.6rem;
+                gap: 0.5rem;
             }
         }
     </style>
@@ -2899,9 +2940,6 @@
         }];
 
         // ─── BRAND GROUPS FOR TRUSTED BY ───
-        // 54 brands split into 5 strategic groups (no repetition across rows).
-        // Each brand appears in EXACTLY ONE row.
-        // Order is balanced so each row has a mix of hero + mid + niche brands.
         const brandGroups = [
             // ── ROW 1 (11 brands) ──
             [
@@ -3265,7 +3303,7 @@
                 sliders.push(slider);
             });
 
-            // Trusted By brand sliders — each row gets its OWN unique group (no cross-row repetition)
+            // Trusted By brand sliders
             const trustedRows = document.querySelectorAll('.trusted-marquee-row');
             trustedRows.forEach((row, index) => {
                 const slider = new InfiniteMarqueeSlider(
