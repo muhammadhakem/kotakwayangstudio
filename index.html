@@ -5,16 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>Kotak Wayang Studio</title>
     <meta name="description" content="Malaysia's premier livestream studio setup engineers. We build high-converting, professional studio setups for TikTok Shop, Shopee Live, and corporate broadcasting." />
-    <!-- ═══ Description website here ═══ -->
-    
-        <!-- ═══ ICON tab browser – ADD HERE ═══ -->
+
     <link rel="icon" type="image/png" href="img-logo/KW-Icon.png" />
 
-    <!-- ═══ Social Media Thumbnail ═══ -->
-    <!-- NOTE: og:image/og:url must be absolute URLs — crawlers (Facebook, WhatsApp,
-         Telegram, LinkedIn, Twitter/X, Discord) read raw HTML and never run JS,
-         so a JS-based relative→absolute conversion never reaches them.
-         When you move to a custom domain, just swap the domain below. -->
     <meta property="og:title" content="Kotak Wayang Studio" />
     <meta property="og:description" content="Malaysia's premier livestream studio setup engineers. We build high-converting, professional studio setups for TikTok Shop, Shopee Live, and corporate broadcasting." />
     <meta property="og:url" content="https://muhammadhakem.github.io/kotakwayangstudio/" />
@@ -27,9 +20,7 @@
     <meta name="twitter:title" content="Kotak Wayang Studio" />
     <meta name="twitter:description" content="Malaysia's premier livestream studio setup engineers. We build high-converting, professional studio setups for TikTok Shop, Shopee Live, and corporate broadcasting." />
     <meta name="twitter:image" content="https://muhammadhakem.github.io/kotakwayangstudio/img-logo/KW-tumbnail (1).png" />
-    
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -174,7 +165,6 @@
             white-space: nowrap;
         }
 
-        /* ─── Logo Box with Image ─── */
         .logo-box {
             width: 38px;
             height: 38px;
@@ -1000,6 +990,232 @@
             color: #FFFFFF;
         }
 
+        /* ─── WHY CHOOSE US ─── */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+        }
+
+        .why-card {
+            background: var(--surface-white);
+            border: 2px solid var(--border-dark);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sticker);
+            padding: 1.75rem 1.25rem;
+            text-align: center;
+            transition: transform var(--transition-bounce), box-shadow var(--transition-bounce);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .why-card:hover {
+            transform: translateY(-6px) rotate(0.5deg);
+            box-shadow: var(--shadow-sticker-lg);
+        }
+
+        .why-icon {
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--border-dark);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 3px 3px 0px var(--border-dark);
+            flex-shrink: 0;
+            margin-bottom: 0.25rem;
+        }
+
+        .why-card:nth-child(1) .why-icon {
+            background: var(--primary-violet);
+            color: #fff;
+        }
+        .why-card:nth-child(2) .why-icon {
+            background: var(--mint-green);
+            color: var(--fg-slate);
+        }
+        .why-card:nth-child(3) .why-icon {
+            background: var(--highlight-yellow);
+            color: var(--fg-slate);
+        }
+        .why-card:nth-child(4) .why-icon {
+            background: var(--secondary-pink);
+            color: #fff;
+        }
+
+        .why-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: currentColor;
+            stroke-width: 2.2;
+            fill: none;
+        }
+
+        .why-card-title {
+            font-size: 1.1rem;
+            margin: 0.25rem 0 0.1rem;
+        }
+
+        .why-card-desc {
+            font-size: 0.85rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        /* ─── TRUSTED BY — INFINITE SLIDER ─── */
+        .trusted-section {
+            background: #F8FAFC;
+            border-top: 2px solid var(--border-dark);
+            border-bottom: 2px solid var(--border-dark);
+        }
+
+        .trusted-marquee-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            max-width: 100%;
+            margin: 0.5rem auto 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .trusted-marquee-row {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            cursor: grab;
+            touch-action: none;
+            padding: 12px 0;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+            -webkit-mask-composite: source-over;
+            mask-composite: add;
+        }
+
+        .trusted-marquee-row:active {
+            cursor: grabbing;
+        }
+
+        .trusted-marquee-track {
+            display: flex;
+            gap: 2rem;
+            width: max-content;
+            will-change: transform;
+            pointer-events: none;
+            transition: none;
+        }
+
+        .trusted-marquee-track.dragging {
+            transition: none !important;
+            cursor: grabbing;
+        }
+
+        /* ─── BIGGER CIRCLE FRAME + ENHANCED POPUP ─── */
+        .trusted-brand-item {
+            flex: 0 0 auto;
+            width: 160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.7rem;
+            padding: 1rem 0.8rem;
+            background: var(--surface-white);
+            border: 2px solid var(--border-dark);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sticker);
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                border-color 0.25s ease;
+            pointer-events: auto;
+            cursor: default;
+            position: relative;
+            will-change: transform;
+        }
+
+        .trusted-brand-item:hover {
+            transform: translateY(-12px) scale(1.04);
+            box-shadow: 10px 14px 0px var(--border-dark), 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-violet);
+            z-index: 5;
+        }
+
+        .trusted-brand-item .brand-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2.5px solid var(--border-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: var(--surface-white);
+            flex-shrink: 0;
+            box-shadow: 3px 3px 0px var(--border-dark);
+            overflow: hidden;
+            background: var(--brand-color, #ccc);
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                border-color 0.25s ease;
+        }
+
+        .trusted-brand-item:hover .brand-icon {
+            transform: scale(1.08) rotate(-4deg);
+            box-shadow: 5px 5px 0px var(--border-dark), 0 0 0 4px var(--highlight-yellow);
+            border-color: var(--primary-violet);
+        }
+
+        .trusted-brand-item .brand-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .trusted-brand-item:hover .brand-icon img {
+            transform: scale(1.05);
+        }
+
+        .trusted-brand-item .brand-name {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: var(--fg-slate);
+            text-align: center;
+            line-height: 1.3;
+            max-width: 120px;
+            margin-top: 0;
+            transition: color 0.25s ease;
+        }
+
+        .trusted-brand-item:hover .brand-name {
+            color: var(--primary-violet);
+        }
+
+        /* ─── POPUP GLOW RING ON HOVER ─── */
+        .trusted-brand-item::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: calc(var(--radius-lg) + 4px);
+            background: transparent;
+            pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            opacity: 0;
+        }
+
+        .trusted-brand-item:hover::after {
+            opacity: 1;
+            background: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.15), transparent 70%);
+            inset: -8px;
+        }
+
         /* ─── TESTIMONIAL INFINITE MARQUEE ─── */
         .testimonial-marquee-wrap {
             display: flex;
@@ -1443,6 +1659,27 @@
             .process-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .trusted-brand-item {
+                width: 140px;
+                padding: 0.8rem 0.6rem;
+                gap: 0.6rem;
+            }
+            .trusted-brand-item .brand-icon {
+                width: 68px;
+                height: 68px;
+                font-size: 1.5rem;
+            }
+            .trusted-brand-item .brand-name {
+                font-size: 0.7rem;
+                max-width: 100px;
+                line-height: 1.3;
+            }
+            .trusted-marquee-track {
+                gap: 1.5rem;
+            }
             .testimonial-marquee-track {
                 gap: 1rem;
             }
@@ -1462,7 +1699,7 @@
         }
 
         @media (max-width: 768px) {
-            /* ─── LIGHTBOX MOBILE: dengan spacing yang diadjust ─── */
+            /* ─── LIGHTBOX MOBILE ─── */
             .lightbox-card {
                 flex-direction: column;
                 padding: 0.5rem 0.5rem 0.75rem;
@@ -1484,7 +1721,7 @@
                 flex: 0 0 auto;
                 width: 100%;
                 max-width: 60vw;
-                margin: 1rem auto 0;      /* ⬅️ JARAK ATAS FRAME DARI BAHAGIAN ATAS MODAL (tukar nilai ni) */
+                margin: 1rem auto 0;
                 border-radius: 16px;
                 border: 2px solid var(--border-dark);
                 box-shadow: var(--shadow-sticker);
@@ -1503,7 +1740,7 @@
                 gap: 0.5rem;
                 padding: 0 0.2rem 0.2rem;
                 max-width: 100%;
-                margin-top: 0.75rem;       /* ⬅️ JARAK ANTARA FRAME & QUOTE (tukar nilai ni) */
+                margin-top: 0.75rem;
                 flex-shrink: 0;
             }
             .lightbox-quote {
@@ -1553,7 +1790,6 @@
                 cursor: pointer;
             }
 
-            /* ─── Rest of mobile styles ─── */
             .navbar {
                 top: 0.75rem;
                 padding: 0 0.8rem;
@@ -1677,6 +1913,62 @@
                 right: 0.6rem;
             }
 
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+            .why-card {
+                padding: 1rem 0.8rem;
+            }
+            .why-icon {
+                width: 44px;
+                height: 44px;
+            }
+            .why-icon svg {
+                width: 20px;
+                height: 20px;
+            }
+            .why-card-title {
+                font-size: 0.9rem;
+            }
+            .why-card-desc {
+                font-size: 0.75rem;
+            }
+
+            .trusted-brand-item {
+                width: 120px;
+                padding: 0.7rem 0.5rem;
+                gap: 0.5rem;
+            }
+            .trusted-brand-item .brand-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.3rem;
+                border-width: 2px;
+            }
+            .trusted-brand-item .brand-icon img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+            .trusted-brand-item .brand-name {
+                font-size: 0.6rem;
+                max-width: 90px;
+                line-height: 1.3;
+                margin-top: 0;
+            }
+            .trusted-brand-item:hover {
+                transform: translateY(-8px) scale(1.03);
+                box-shadow: 6px 10px 0px var(--border-dark), 0 15px 30px -10px rgba(0, 0, 0, 0.25);
+            }
+            .trusted-brand-item:hover .brand-icon {
+                transform: scale(1.05) rotate(-3deg);
+                box-shadow: 4px 4px 0px var(--border-dark), 0 0 0 3px var(--highlight-yellow);
+            }
+            .trusted-marquee-track {
+                gap: 1.2rem;
+            }
+
             .comparison-wrapper {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 0.75rem;
@@ -1794,7 +2086,7 @@
                 width: 28px;
                 height: 28px;
             }
-            
+
             .lightbox-card {
                 padding: 0.3rem 0.3rem 0.5rem;
                 gap: 0.3rem;
@@ -1804,11 +2096,11 @@
             }
             .lightbox-media {
                 max-width: 65vw;
-                margin-top: 0.75rem;       /* ⬅️ JARAK ATAS FRAME (lebih kecil) */
+                margin-top: 0.75rem;
             }
             .lightbox-content {
                 gap: 0.3rem;
-                margin-top: 0.6rem;        /* ⬅️ JARAK FRAME-QUOTE */
+                margin-top: 0.6rem;
                 padding: 0 0.1rem 0.1rem;
             }
             .lightbox-quote {
@@ -1839,6 +2131,44 @@
                 font-size: 0.65rem;
                 padding: 0.25rem 0.6rem;
             }
+
+            .trusted-brand-item {
+                width: 100px;
+                padding: 0.5rem 0.3rem;
+                gap: 0.4rem;
+            }
+            .trusted-brand-item .brand-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.1rem;
+                border-width: 2px;
+            }
+            .trusted-brand-item .brand-icon img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+            .trusted-brand-item .brand-name {
+                font-size: 0.55rem;
+                max-width: 80px;
+                line-height: 1.3;
+                margin-top: 0;
+            }
+            .trusted-brand-item:hover {
+                transform: translateY(-6px) scale(1.02);
+                box-shadow: 4px 8px 0px var(--border-dark), 0 10px 20px -8px rgba(0, 0, 0, 0.2);
+            }
+            .trusted-brand-item:hover .brand-icon {
+                transform: scale(1.04) rotate(-2deg);
+                box-shadow: 3px 3px 0px var(--border-dark), 0 0 0 3px var(--highlight-yellow);
+            }
+            .trusted-marquee-track {
+                gap: 0.8rem;
+            }
+            .trusted-marquee-row {
+                padding: 8px 0;
+            }
+
             .comparison-wrapper {
                 max-width: 300px;
                 gap: 0.5rem;
@@ -1864,6 +2194,28 @@
             .testimonial-gallery-item:hover {
                 transform: translateY(-2px);
             }
+
+            .why-grid {
+                gap: 0.5rem;
+            }
+            .why-card {
+                padding: 0.7rem 0.5rem;
+            }
+            .why-icon {
+                width: 36px;
+                height: 36px;
+            }
+            .why-icon svg {
+                width: 16px;
+                height: 16px;
+            }
+            .why-card-title {
+                font-size: 0.8rem;
+            }
+            .why-card-desc {
+                font-size: 0.68rem;
+            }
+
             .services-grid {
                 gap: 0.5rem;
             }
@@ -1940,6 +2292,39 @@
                 font-size: 0.8rem;
                 top: 0.2rem;
                 right: 0.2rem;
+            }
+            .trusted-brand-item {
+                width: 85px;
+                padding: 0.4rem 0.2rem;
+                gap: 0.3rem;
+            }
+            .trusted-brand-item .brand-icon {
+                width: 42px;
+                height: 42px;
+                font-size: 0.9rem;
+                border-width: 1.5px;
+            }
+            .trusted-brand-item .brand-icon img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+            .trusted-brand-item .brand-name {
+                font-size: 0.45rem;
+                max-width: 65px;
+                line-height: 1.2;
+                margin-top: 0;
+            }
+            .trusted-brand-item:hover {
+                transform: translateY(-4px) scale(1.02);
+                box-shadow: 3px 6px 0px var(--border-dark);
+            }
+            .trusted-brand-item:hover .brand-icon {
+                transform: scale(1.03) rotate(-2deg);
+                box-shadow: 2px 2px 0px var(--border-dark), 0 0 0 2px var(--highlight-yellow);
+            }
+            .trusted-marquee-track {
+                gap: 0.6rem;
             }
         }
     </style>
@@ -2185,6 +2570,76 @@
             </div>
         </section>
 
+        <!-- ═══ WHY CHOOSE US ═══ -->
+        <section id="why-choose-us" class="section-padding" style="background:#F8FAFC; border-top:2px solid var(--border-dark); border-bottom:2px solid var(--border-dark);">
+            <div class="container">
+                <div class="section-header">
+                    <div class="pill-badge" style="background:var(--primary-violet); color:white;">BUILT DIFFERENT</div>
+                    <h2 class="section-title">Why Choose Us</h2>
+                    <p class="section-subtitle">We don't just set up equipment — we engineer complete, reliable live streaming ecosystems.</p>
+                </div>
+                <div class="why-grid">
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <h3 class="why-card-title">Expert Setup</h3>
+                        <p class="why-card-desc">Years of experience configuring professional streaming and studio systems for creators, businesses, and broadcasters.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="8" y1="2" x2="8" y2="22"/><line x1="16" y1="2" x2="16" y2="22"/><line x1="2" y1="8" x2="22" y2="8"/><line x1="2" y1="16" x2="22" y2="16"/></svg>
+                        </div>
+                        <h3 class="why-card-title">Reliable Systems</h3>
+                        <p class="why-card-desc">We build redundant, fail-safe setups so your stream never drops and your studio runs flawlessly every time.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <h3 class="why-card-title">Fast Turnaround</h3>
+                        <p class="why-card-desc">From consultation to installation — we move quickly without cutting corners. Your studio, ready when you are.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                        </div>
+                        <h3 class="why-card-title">Ongoing Support</h3>
+                        <p class="why-card-desc">We don't just set it up and leave. Get dedicated support, maintenance, and upgrades as your needs grow.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ TRUSTED BY — INFINITE SLIDER ═══ -->
+        <section id="trusted" class="section-padding trusted-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="pill-badge" style="background:var(--mint-green); color:var(--fg-slate);">OUR CLIENTS</div>
+                    <h2 class="section-title">Trusted By</h2>
+                    <p class="section-subtitle">Brands and creators who trust us with their live streaming needs</p>
+                </div>
+
+                <div class="trusted-marquee-wrap" id="trustedWrap">
+                    <div class="trusted-marquee-row" data-row="0">
+                        <div class="trusted-marquee-track" id="trustedTrack0"></div>
+                    </div>
+                    <div class="trusted-marquee-row" data-row="1">
+                        <div class="trusted-marquee-track" id="trustedTrack1"></div>
+                    </div>
+                    <div class="trusted-marquee-row" data-row="2">
+                        <div class="trusted-marquee-track" id="trustedTrack2"></div>
+                    </div>
+                    <div class="trusted-marquee-row" data-row="3">
+                        <div class="trusted-marquee-track" id="trustedTrack3"></div>
+                    </div>
+                    <div class="trusted-marquee-row" data-row="4">
+                        <div class="trusted-marquee-track" id="trustedTrack4"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CLIENTS / TESTIMONIALS -->
         <section id="clients" class="section-padding" style="background:#FFFDF5;">
             <div class="container">
@@ -2319,132 +2774,205 @@
                 }
             }, 300);
         });
-        // ─── END ──────────────────────────────────
 
         // ─── TESTIMONIAL DATA ───
-        const testimonialData = [
-    {
-        name: 'B.U.M Equipment',
-        company: 'Fashion',
-        quote: 'Lepas upgrade setup ni memang nampak beza dekat live. Lighting lagi cantik, colour product pun lebih accurate and overall feed nampak jauh lebih clean.',
-        media: 'images-testimoni/5.PNG',
-        type: 'image'
-    }, {
-        name: 'Shawlpublika',
-        company: 'Fashion',
-        quote: 'Before ni susah sikit nak bagi outfit nampak cantik on camera. Lepas setup baru ni, lighting dengan backdrop memang banyak membantu. Product nampak lebih clear and lebih senang nak showcase.',
-        media: 'images-testimoni/10.PNG',
-        type: 'image'
-    }, {
-        name: 'Corolla Shoes',
-        company: 'Fashion',
-        quote: 'Yang paling kami suka, setup sekarang nampak lebih kemas and senang untuk team operate. Tak serabut sangat macam setup lama, especially bila tengah live.',
-        media: 'images-testimoni/11.png',
-        type: 'image'
-    }, {
-        name: 'LyndaRahim HQ',
-        company: 'Fashion',
-        quote: 'Camera setup memang membantu especially bila nak tunjuk full outfit. Wide shot sekarang nampak lebih proper and tak rasa macam terlalu sempit dalam frame.',
-        media: 'images-testimoni/16.PNG',
-        type: 'image'
-    }, {
-        name: 'Zoe Arisah',
-        company: 'Fashion',
-        quote: 'Close-up product sekarang memang nampak lagi sharp. Detail kain, texture semua boleh nampak better, so host pun senang nak explain dekat viewers.',
-        media: 'images-testimoni/17.PNG',
-        type: 'image'
-    }, {
-        name: 'B.U.M Equipment',
-        company: 'Shoes',
-        quote: 'Bila buat close-up kasut sekarang, details dekat material and finishing memang lebih jelas. Viewers pun senang nak tengok product properly sebelum decide nak beli.',
-        media: 'images-testimoni/6.PNG',
-        type: 'image'
-    }, {
-        name: 'Innisfree',
-        company: 'Beauty & Personal Care',
-        quote: 'Live feed sekarang memang nampak jauh lebih clean. Lighting pun buat skin tone dengan product colour nampak lebih natural. Overall memang nampak lebih professional.',
-        media: 'images-testimoni/1.PNG',
-        type: 'image'
-    }, {
-        name: 'Nihon Skincare',
-        company: 'Beauty & Personal Care',
-        quote: 'Honestly memang nampak beza lepas upgrade setup. Studio nampak lebih polished and bila live, brand pun rasa lebih premium dekat screen.',
-        media: 'images-testimoni/8.PNG',
-        type: 'image'
-    }, {
-        name: 'YSL Beauty Malaysia',
-        company: 'Beauty & Personal Care',
-        quote: 'Lighting dengan camera setup memang buat difference bila buat product demo. Colour product nampak lebih proper and close-up pun clear, so senang nak tunjuk details dekat viewers.',
-        media: 'images-testimoni/18.PNG',
-        type: 'image'
-    }, {
-        name: 'Habib',
-        company: 'Gold & Jewelry Accessories',
-        quote: 'Lepas tukar setup ni memang nampak beza dekat live feed. Especially bila nak tunjuk jewellery close-up, details kecil macam finishing dengan design nampak lebih jelas.',
-        media: 'images-testimoni/2.PNG',
-        type: 'image'
-    }, {
-        name: 'Pandora',
-        company: 'Jewelry Accessories',
-        quote: 'Bila buat close-up sekarang, charms, bracelet details semua boleh nampak lebih jelas. Before ni agak susah nak capture benda kecil macam ni masa live.',
-        media: 'images-testimoni/14.PNG',
-        type: 'image'
-    }, {
-        name: 'Samsonite',
-        company: 'Luggage & Travel',
-        quote: 'Setup ni memang bagi kita lebih flexibility masa showcase luggage. Nak buat wide shot atau close-up senang, so viewers boleh nampak size dengan details product dengan lebih jelas.',
-        media: 'images-testimoni/19.png',
-        type: 'image'
-    }, {
-        name: 'American Tourister',
-        company: 'Luggage & Travel',
-        quote: 'Colourful products macam ni memang penting lighting kena betul. Lepas setup baru, colour luggage nampak lebih vibrant and overall live rasa lebih lively.',
-        media: 'images-testimoni/20.png',
-        type: 'image'
-    }, {
-        name: 'Zuss Coffee',
-        company: 'Food & Beverages',
-        quote: 'Sekarang senang sikit nak showcase drinks masa live. Camera angle dengan lighting memang membantu bagi product nampak lebih clear, especially bila host tengah buat demo.',
-        media: 'images-testimoni/4.PNG',
-        type: 'image'
-    }, {
-        name: 'Oreo',
-        company: 'Food & Beverages',
-        quote: 'Bila host tengah buat demo, viewers boleh nampak dengan lebih jelas apa yang tengah dibuat. Live rasa lebih interactive sebab boleh switch angle ikut apa yang host tengah tunjuk.',
-        media: 'images-testimoni/15.png',
-        type: 'image'
-    }, {
-        name: 'Cadbury Dairymilk',
-        company: 'Food & Beverages',
-        quote: 'Lighting memang buat banyak difference untuk product macam chocolate. Colour dengan texture nampak lebih nice on camera, especially bila buat close-up.',
-        media: 'images-testimoni/12.PNG',
-        type: 'image'
-    }, {
-        name: 'Zuss Coffee',
-        company: 'Food & Beverages',
-        quote: 'Multi-cam setup memang membantu sebab boleh tukar angle ikut apa yang nak tunjuk. Product details pun viewers boleh nampak dengan lebih jelas.',
-        media: 'images-testimoni/7.PNG',
-        type: 'image'
-    }, {
-        name: 'Simplus',
-        company: 'Home Appliances',
-        quote: 'Bila explain product features masa live, senang sebab boleh tunjuk dekat camera terus. Close-up pun clear, so viewers tak perlu agak-agak sangat macam mana product tu.',
-        media: 'images-testimoni/3.PNG',
-        type: 'image'
-    }, {
-        name: 'Liza | Racun Mommies',
-        company: 'Baby & Maternity',
-        quote: 'Setup sekarang memang lebih senang untuk daily live. Everything dah lebih organised, so host boleh focus dekat content and viewers instead of fikir pasal technical issue.',
-        media: 'images-testimoni/13.PNG',
-        type: 'image'
-    }, {
-        name: 'Zuss Coffee',
-        company: 'Food & Beverages',
-        quote: 'Audio sekarang memang jauh lebih clear. Masa host explain product atau interact dengan viewers, suara lebih senang nak dengar and tak macam dulu yang kadang-kadang ada echo.',
-        media: 'images-testimoni/9.PNG',
-        type: 'image'
-    }];
+        const testimonialData = [{
+            name: 'B.U.M Equipment',
+            company: 'Fashion',
+            quote: 'Lepas upgrade setup ni memang nampak beza dekat live. Lighting lagi cantik, colour product pun lebih accurate and overall feed nampak jauh lebih clean.',
+            media: 'images-testimoni/5.PNG',
+            type: 'image'
+        }, {
+            name: 'Shawlpublika',
+            company: 'Fashion',
+            quote: 'Before ni susah sikit nak bagi outfit nampak cantik on camera. Lepas setup baru ni, lighting dengan backdrop memang banyak membantu. Product nampak lebih clear and lebih senang nak showcase.',
+            media: 'images-testimoni/10.PNG',
+            type: 'image'
+        }, {
+            name: 'Corolla Shoes',
+            company: 'Fashion',
+            quote: 'Yang paling kami suka, setup sekarang nampak lebih kemas and senang untuk team operate. Tak serabut sangat macam setup lama, especially bila tengah live.',
+            media: 'images-testimoni/11.png',
+            type: 'image'
+        }, {
+            name: 'LyndaRahim HQ',
+            company: 'Fashion',
+            quote: 'Camera setup memang membantu especially bila nak tunjuk full outfit. Wide shot sekarang nampak lebih proper and tak rasa macam terlalu sempit dalam frame.',
+            media: 'images-testimoni/16.PNG',
+            type: 'image'
+        }, {
+            name: 'Zoe Arisah',
+            company: 'Fashion',
+            quote: 'Close-up product sekarang memang nampak lagi sharp. Detail kain, texture semua boleh nampak better, so host pun senang nak explain dekat viewers.',
+            media: 'images-testimoni/17.PNG',
+            type: 'image'
+        }, {
+            name: 'B.U.M Equipment',
+            company: 'Shoes',
+            quote: 'Bila buat close-up kasut sekarang, details dekat material and finishing memang lebih jelas. Viewers pun senang nak tengok product properly sebelum decide nak beli.',
+            media: 'images-testimoni/6.PNG',
+            type: 'image'
+        }, {
+            name: 'Innisfree',
+            company: 'Beauty & Personal Care',
+            quote: 'Live feed sekarang memang nampak jauh lebih clean. Lighting pun buat skin tone dengan product colour nampak lebih natural. Overall memang nampak lebih professional.',
+            media: 'images-testimoni/1.PNG',
+            type: 'image'
+        }, {
+            name: 'Nihon Skincare',
+            company: 'Beauty & Personal Care',
+            quote: 'Honestly memang nampak beza lepas upgrade setup. Studio nampak lebih polished and bila live, brand pun rasa lebih premium dekat screen.',
+            media: 'images-testimoni/8.PNG',
+            type: 'image'
+        }, {
+            name: 'YSL Beauty Malaysia',
+            company: 'Beauty & Personal Care',
+            quote: 'Lighting dengan camera setup memang buat difference bila buat product demo. Colour product nampak lebih proper and close-up pun clear, so senang nak tunjuk details dekat viewers.',
+            media: 'images-testimoni/18.PNG',
+            type: 'image'
+        }, {
+            name: 'Habib',
+            company: 'Gold & Jewelry Accessories',
+            quote: 'Lepas tukar setup ni memang nampak beza dekat live feed. Especially bila nak tunjuk jewellery close-up, details kecil macam finishing dengan design nampak lebih jelas.',
+            media: 'images-testimoni/2.PNG',
+            type: 'image'
+        }, {
+            name: 'Pandora',
+            company: 'Jewelry Accessories',
+            quote: 'Bila buat close-up sekarang, charms, bracelet details semua boleh nampak lebih jelas. Before ni agak susah nak capture benda kecil macam ni masa live.',
+            media: 'images-testimoni/14.PNG',
+            type: 'image'
+        }, {
+            name: 'Samsonite',
+            company: 'Luggage & Travel',
+            quote: 'Setup ni memang bagi kita lebih flexibility masa showcase luggage. Nak buat wide shot atau close-up senang, so viewers boleh nampak size dengan details product dengan lebih jelas.',
+            media: 'images-testimoni/19.png',
+            type: 'image'
+        }, {
+            name: 'American Tourister',
+            company: 'Luggage & Travel',
+            quote: 'Colourful products macam ni memang penting lighting kena betul. Lepas setup baru, colour luggage nampak lebih vibrant and overall live rasa lebih lively.',
+            media: 'images-testimoni/20.png',
+            type: 'image'
+        }, {
+            name: 'Zuss Coffee',
+            company: 'Food & Beverages',
+            quote: 'Sekarang senang sikit nak showcase drinks masa live. Camera angle dengan lighting memang membantu bagi product nampak lebih clear, especially bila host tengah buat demo.',
+            media: 'images-testimoni/4.PNG',
+            type: 'image'
+        }, {
+            name: 'Oreo',
+            company: 'Food & Beverages',
+            quote: 'Bila host tengah buat demo, viewers boleh nampak dengan lebih jelas apa yang tengah dibuat. Live rasa lebih interactive sebab boleh switch angle ikut apa yang host tengah tunjuk.',
+            media: 'images-testimoni/15.png',
+            type: 'image'
+        }, {
+            name: 'Cadbury Dairymilk',
+            company: 'Food & Beverages',
+            quote: 'Lighting memang buat banyak difference untuk product macam chocolate. Colour dengan texture nampak lebih nice on camera, especially bila buat close-up.',
+            media: 'images-testimoni/12.PNG',
+            type: 'image'
+        }, {
+            name: 'Zuss Coffee',
+            company: 'Food & Beverages',
+            quote: 'Multi-cam setup memang membantu sebab boleh tukar angle ikut apa yang nak tunjuk. Product details pun viewers boleh nampak dengan lebih jelas.',
+            media: 'images-testimoni/7.PNG',
+            type: 'image'
+        }, {
+            name: 'Simplus',
+            company: 'Home Appliances',
+            quote: 'Bila explain product features masa live, senang sebab boleh tunjuk dekat camera terus. Close-up pun clear, so viewers tak perlu agak-agak sangat macam mana product tu.',
+            media: 'images-testimoni/3.PNG',
+            type: 'image'
+        }, {
+            name: 'Liza | Racun Mommies',
+            company: 'Baby & Maternity',
+            quote: 'Setup sekarang memang lebih senang untuk daily live. Everything dah lebih organised, so host boleh focus dekat content and viewers instead of fikir pasal technical issue.',
+            media: 'images-testimoni/13.PNG',
+            type: 'image'
+        }, {
+            name: 'Zuss Coffee',
+            company: 'Food & Beverages',
+            quote: 'Audio sekarang memang jauh lebih clear. Masa host explain product atau interact dengan viewers, suara lebih senang nak dengar and tak macam dulu yang kadang-kadang ada echo.',
+            media: 'images-testimoni/9.PNG',
+            type: 'image'
+        }];
 
+        // ─── BRAND GROUPS FOR TRUSTED BY ───
+        // 54 brands split into 5 strategic groups (no repetition across rows).
+        // Each brand appears in EXACTLY ONE row.
+        // Order is balanced so each row has a mix of hero + mid + niche brands.
+        const brandGroups = [
+            // ── ROW 1 (11 brands) ──
+            [
+                { name: 'Cadbury', color: '#FFFFFF', image: 'BrandLogo/1.png' },
+                { name: 'Xiaomi', color: '#FFFFFF', image: 'BrandLogo/49.png' },
+                { name: 'Innisfree', color: '#FFFFFF', image: 'BrandLogo/27.png' },
+                { name: 'Coach', color: '#FFFFFF', image: 'BrandLogo/4.png' },
+                { name: 'TikTokShop MY', color: '#FFFFFF', image: 'BrandLogo/16.png' },
+                { name: 'Mossdoom', color: '#FFFFFF', image: 'BrandLogo/6.png' },
+                { name: 'Shawlpublika', color: '#FFFFFF', image: 'BrandLogo/9.png' },
+                { name: 'B.U.M', color: '#FFFFFF', image: 'BrandLogo/19.png' },
+                { name: 'Simplus', color: '#FFFFFF', image: 'BrandLogo/44.png' },
+                { name: 'Sasa', color: '#FFFFFF', image: 'BrandLogo/42.png' },
+                { name: 'Xixili', color: '#FFFFFF', image: 'BrandLogo/54.png' },
+            ],
+            // ── ROW 2 (11 brands) ──
+            [
+                { name: 'Disney', color: '#FFFFFF', image: 'BrandLogo/7.png' },
+                { name: 'Zus Coffee', color: '#FFFFFF', image: 'BrandLogo/32.png' },
+                { name: 'Pandora', color: '#FFFFFF', image: 'BrandLogo/13.png' },
+                { name: 'Ugreen', color: '#FFFFFF', image: 'BrandLogo/17.png' },
+                { name: 'Carlo Rino', color: '#FFFFFF', image: 'BrandLogo/5.png' },
+                { name: 'Wardah', color: '#FFFFFF', image: 'BrandLogo/25.png' },
+                { name: 'Lynda Rahim', color: '#FFFFFF', image: 'BrandLogo/11.png' },
+                { name: 'Anta', color: '#FFFFFF', image: 'BrandLogo/20.png' },
+                { name: 'Nihon', color: '#FFFFFF', image: 'BrandLogo/39.png' },
+                { name: 'Dynamo', color: '#FFFFFF', image: 'BrandLogo/53.png' },
+                { name: 'Tefal', color: '#FFFFFF', image: 'BrandLogo/46.png' },
+            ],
+            // ── ROW 3 (11 brands) ──
+            [
+                { name: 'Nestle', color: '#FFFFFF', image: 'BrandLogo/35.png' },
+                { name: 'Puma', color: '#FFFFFF', image: 'BrandLogo/21.png' },
+                { name: 'Mac', color: '#FFFFFF', image: 'BrandLogo/28.png' },
+                { name: 'Samsonite', color: '#FFFFFF', image: 'BrandLogo/23.png' },
+                { name: 'Hisense', color: '#FFFFFF', image: 'BrandLogo/14.png' },
+                { name: 'Laneige', color: '#FFFFFF', image: 'BrandLogo/31.png' },
+                { name: 'Habib', color: '#FFFFFF', image: 'BrandLogo/12.png' },
+                { name: 'Polo Hill', color: '#FFFFFF', image: 'BrandLogo/8.png' },
+                { name: 'Skinmade', color: '#FFFFFF', image: 'BrandLogo/26.png' },
+                { name: 'Roborock', color: '#FFFFFF', image: 'BrandLogo/47.png' },
+                { name: 'HyperGear', color: '#FFFFFF', image: 'BrandLogo/52.png' },
+            ],
+            // ── ROW 4 (11 brands) ──
+            [
+                { name: 'Oreo', color: '#FFFFFF', image: 'BrandLogo/2.png' },
+                { name: 'Huawei', color: '#FFFFFF', image: 'BrandLogo/50.png' },
+                { name: 'YSL', color: '#FFFFFF', image: 'BrandLogo/29.png' },
+                { name: 'Am. Tourister', color: '#FFFFFF', image: 'BrandLogo/24.png' },
+                { name: 'TCL', color: '#FFFFFF', image: 'BrandLogo/15.png' },
+                { name: 'Lancome', color: '#FFFFFF', image: 'BrandLogo/30.png' },
+                { name: 'Ogawa', color: '#FFFFFF', image: 'BrandLogo/37.png' },
+                { name: 'Zoe Arisah', color: '#FFFFFF', image: 'BrandLogo/10.png' },
+                { name: 'Aik Cheong', color: '#FFFFFF', image: 'BrandLogo/33.png' },
+                { name: 'Perysmith', color: '#FFFFFF', image: 'BrandLogo/45.png' },
+                { name: 'Ulike', color: '#FFFFFF', image: 'BrandLogo/43.png' },
+            ],
+            // ── ROW 5 (10 brands) ──
+            [
+                { name: 'Chipsmore', color: '#FFFFFF', image: 'BrandLogo/3.png' },
+                { name: 'Realme', color: '#FFFFFF', image: 'BrandLogo/48.png' },
+                { name: 'The Body Shop', color: '#FFFFFF', image: 'BrandLogo/41.png' },
+                { name: 'Montigo', color: '#FFFFFF', image: 'BrandLogo/51.png' },
+                { name: 'Daniel W.', color: '#FFFFFF', image: 'BrandLogo/22.png' },
+                { name: 'Corolla Shoes', color: '#FFFFFF', image: 'BrandLogo/18.png' },
+                { name: 'Oatside', color: '#FFFFFF', image: 'BrandLogo/34.png' },
+                { name: 'HWC Coffee', color: '#FFFFFF', image: 'BrandLogo/36.png' },
+                { name: 'TTracing', color: '#FFFFFF', image: 'BrandLogo/38.png' },
+                { name: 'Beauty of Josen', color: '#FFFFFF', image: 'BrandLogo/40.png' },
+            ],
+        ];
 
         // ─── CREATE TESTIMONIAL ITEM ELEMENT ───
         function createTestimonialItem(data) {
@@ -2491,18 +3019,36 @@
             return item;
         }
 
-        // ─── INFINITE MARQUEE WITH DRAG ───
+        // ─── CREATE BRAND ITEM ───
+        function createBrandItem(brand) {
+            const item = document.createElement('div');
+            item.className = 'trusted-brand-item';
+            let iconContent;
+            if (brand.image) {
+                iconContent = `<img src="${brand.image}" alt="${brand.name} logo">`;
+            } else {
+                const initial = brand.name.charAt(0);
+                iconContent = initial;
+            }
+            item.innerHTML = `
+                <div class="brand-icon" style="background:${brand.color};">${iconContent}</div>
+                <span class="brand-name">${brand.name}</span>
+            `;
+            return item;
+        }
+
+        // ─── INFINITE MARQUEE SLIDER ─── (Generic)
         class InfiniteMarqueeSlider {
-            constructor(rowElement, rowIndex, data) {
+            constructor(rowElement, rowIndex, data, itemFactory, trackId) {
                 this.row = rowElement;
-                this.track = rowElement.querySelector('.testimonial-marquee-track');
+                this.track = document.getElementById(trackId);
                 this.data = data;
                 this.items = [];
                 this.itemWidth = 0;
                 this.gap = 0;
                 this.totalWidth = 0;
                 this.position = 0;
-                this.autoScrollSpeed = 0.2;
+                this.autoScrollSpeed = 0.25;
                 this.isDragging = false;
                 this.isPaused = false;
                 this.startX = 0;
@@ -2512,8 +3058,9 @@
                 this.rafId = null;
                 this.boundAnimate = this.animate.bind(this);
                 this.lastTimestamp = 0;
+                this.itemFactory = itemFactory;
 
-                this.direction = rowIndex === 0 ? -1 : 1;
+                this.direction = rowIndex % 2 === 0 ? -1 : 1;
 
                 this.buildTrack();
                 this.updateDimensions();
@@ -2526,7 +3073,7 @@
                 const copies = 3;
                 for (let c = 0; c < copies; c++) {
                     this.data.forEach(d => {
-                        const el = createTestimonialItem(d);
+                        const el = this.itemFactory(d);
                         this.track.appendChild(el);
                         this.items.push(el);
                     });
@@ -2538,7 +3085,8 @@
                 const first = this.items[0];
                 const rect = first.getBoundingClientRect();
                 const style = getComputedStyle(this.track);
-                this.gap = parseFloat(style.gap) || 20;
+                const gapStr = style.gap || '0px';
+                this.gap = parseFloat(gapStr) || 0;
                 this.itemWidth = rect.width + this.gap;
                 const setWidth = this.itemWidth * this.data.length;
                 this.totalWidth = setWidth * 3;
@@ -2652,7 +3200,8 @@
                 this.startX = touch.clientX;
                 this.startY = touch.clientY;
                 this.startPos = this.position;
-                this.tapTarget = e.target.closest('.testimonial-gallery-item');
+                this.tapTarget = e.target.closest('.trusted-brand-item') || e.target.closest(
+                '.testimonial-gallery-item');
                 this.track.classList.add('dragging');
                 e.preventDefault();
             }
@@ -2699,6 +3248,7 @@
         let sliders = [];
 
         function initSliders() {
+            // Testimonial sliders
             const rows = document.querySelectorAll('.testimonial-marquee-row');
             rows.forEach((row, i) => {
                 let rowData;
@@ -2707,7 +3257,25 @@
                 } else {
                     rowData = testimonialData.slice(10, 20);
                 }
-                const slider = new InfiniteMarqueeSlider(row, i, rowData);
+                const slider = new InfiniteMarqueeSlider(
+                    row, i, rowData,
+                    createTestimonialItem,
+                    `track${i}`
+                );
+                sliders.push(slider);
+            });
+
+            // Trusted By brand sliders — each row gets its OWN unique group (no cross-row repetition)
+            const trustedRows = document.querySelectorAll('.trusted-marquee-row');
+            trustedRows.forEach((row, index) => {
+                const slider = new InfiniteMarqueeSlider(
+                    row,
+                    index,
+                    brandGroups[index],
+                    createBrandItem,
+                    `trustedTrack${index}`
+                );
+                slider.autoScrollSpeed = 0.2 + (index * 0.02);
                 sliders.push(slider);
             });
         }
