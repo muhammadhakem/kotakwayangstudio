@@ -2939,12 +2939,14 @@
                                 <g>
                                   <rect x="378" y="43" width="76" height="30" rx="15" fill="#1E293B"/>
                                   <rect x="375" y="40" width="76" height="30" rx="15" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5"/>
-                                  <!-- eye outline (rounded) -->
-                                  <path d="M 385 55 C 389 46, 401 46, 405 55 C 401 64, 389 64, 385 55 Z"
-                                        fill="none" stroke="#1E293B" stroke-width="2"
-                                        stroke-linejoin="round" stroke-linecap="round"/>
-                                  <!-- pulsing pupil -->
-                                  <circle class="kws-live-dot" style="animation-duration:1.8s" cx="395" cy="55" r="2.4" fill="#34D399"/>
+                                  <!-- eye + pupil, scaled around center (395, 55) -->
+                                <g transform="translate(395, 55) scale(0.7) translate(-395, -55)">
+                                <path d="M 385 55 C 389 46, 401 46, 405 55 C 401 64, 389 64, 385 55 Z"
+                                fill="none" stroke="#1E293B" stroke-width="2"
+                                stroke-linejoin="round" stroke-linecap="round"
+                                vector-effect="non-scaling-stroke"/>
+                                <circle class="kws-live-dot" style="animation-duration:1.8s" cx="395" cy="55" r="2.4" fill="#34D399"/>
+                                </g>
                                   <text x="408" y="59" font-family="Outfit, 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="800" fill="#1E293B" letter-spacing="0.4">25K</text>
                                 </g>
 
