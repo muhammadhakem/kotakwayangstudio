@@ -3534,7 +3534,7 @@
 
             let mediaContent = `<span class="phone-media-placeholder">Add photo / video</span>`;
             if (data.media) {
-                mediaContent = `<img src="${data.media}" alt="${data.name} livestream setup" loading="lazy" decoding="async" width="640" height="1330" style="width:100%;height:100%;object-fit:cover;">`;
+                mediaContent = `<img src="${data.media}" alt="${data.name} livestream setup" decoding="async" width="640" height="1330" style="width:100%;height:100%;object-fit:cover;">`;
             }
 
             item.innerHTML = `
@@ -3569,7 +3569,7 @@
             item.className = 'trusted-brand-item';
             let iconContent;
             if (brand.image) {
-                iconContent = `<img src="${brand.image}" alt="${brand.name} logo" loading="lazy" decoding="async" width="96" height="96">`;
+                iconContent = `<img src="${brand.image}" alt="${brand.name} logo" decoding="async" width="96" height="96">`;
             } else {
                 const initial = brand.name.charAt(0);
                 iconContent = initial;
