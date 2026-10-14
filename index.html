@@ -15,12 +15,15 @@
     <meta property="og:image" content="https://kotakwayangstudio.vercel.app/img-logo/kwtumbnail.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:type" content="image/webp" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Kotak Wayang Studio" />
     <meta name="twitter:description" content="Malaysia's premier livestream studio setup engineers. We build high-converting, professional studio setups for TikTok Shop, Shopee Live, and corporate broadcasting." />
     <meta name="twitter:image" content="https://kotakwayangstudio.vercel.app/img-logo/kwtumbnail.png" />
+
+    <link rel="preload" as="image" href="img-logo/KW-icon.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="images-testimoni/C1.webp" type="image/webp" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,7 +36,9 @@
             --fg-slate: #1E293B;
             --primary-violet: #8B5CF6;
             --primary-dark: #7C3AED;
+            --primary-deep: #6D28D9;
             --secondary-pink: #F472B6;
+            --secondary-pink-deep: #DB2777;
             --highlight-yellow: #FBBF24;
             --mint-green: #34D399;
             --surface-white: #FFFFFF;
@@ -69,6 +74,7 @@
         html {
             scroll-behavior: smooth;
             font-size: 16px;
+            scroll-padding-top: 92px;
         }
 
         body {
@@ -242,6 +248,8 @@
             background: var(--surface-white);
             border: 2px solid var(--border-dark);
             border-radius: var(--radius-sm);
+            min-width: 44px;
+            min-height: 44px;
             padding: 0.4rem 0.5rem;
             box-shadow: 2px 2px 0px var(--border-dark);
             flex-shrink: 0;
@@ -278,7 +286,7 @@
         }
 
         .btn-candy {
-            background: var(--primary-violet);
+            background: var(--primary-dark);
             color: var(--surface-white);
             box-shadow: var(--shadow-button);
         }
@@ -391,8 +399,8 @@
                 gap: 0.4rem;
             }
             .btn-sm.nav-book-btn {
-                width: 32px;
-                height: 32px;
+                width: 44px;
+                height: 44px;
                 padding: 0.3rem 0.4rem;
             }
             .btn-sm.nav-book-btn svg {
@@ -631,7 +639,7 @@
         .sticker-camera {
             bottom: 15px;
             left: -15px;
-            background: var(--secondary-pink);
+            background: var(--secondary-pink-deep);
             color: var(--surface-white);
             transform: rotate(-5deg);
             animation-delay: -2s;
@@ -675,26 +683,34 @@
         }
 
         .service-card {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            column-gap: 0.9rem;
+            align-items: center;
             height: 100%;
             padding: 1.5rem;
+        }
+        .service-card > .service-title {
+            align-self: center;
+            margin: 0;
+        }
+        .service-card > .service-desc {
+            grid-column: 1 / -1;
+            margin-top: 0.75rem;
         }
 
         .service-icon-wrapper {
             width: 50px;
             height: 50px;
-            border: 2px solid var(--border-dark);
             border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
             box-shadow: 3px 3px 0px var(--border-dark);
         }
 
         .service-card:nth-child(1) .service-icon-wrapper {
-            background: var(--secondary-pink);
+            background: var(--secondary-pink-deep);
         }
         .service-card:nth-child(2) .service-icon-wrapper {
             background: var(--primary-violet);
@@ -796,7 +812,7 @@
             background: var(--primary-violet);
         }
         .process-card:nth-child(2) .process-step-pill {
-            background: var(--secondary-pink);
+            background: var(--secondary-pink-deep);
         }
         .process-card:nth-child(3) .process-step-pill {
             background: #2563EB;
@@ -840,7 +856,7 @@
         }
 
         .before-badge {
-            background: #EF4444;
+            background: #DC2626;
             color: #FFFFFF;
             box-shadow: 2px 2px 0px var(--border-dark);
         }
@@ -862,7 +878,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.75rem;
+            font-size: 0.78rem;
             line-height: 1.3;
         }
 
@@ -875,7 +891,7 @@
             justify-content: center;
             flex-shrink: 0;
             font-weight: 900;
-            font-size: 0.55rem;
+            font-size: 0.72rem;
             border: 1.5px solid var(--border-dark);
         }
 
@@ -1006,10 +1022,14 @@
             padding: 1.75rem 1.25rem;
             text-align: center;
             transition: transform var(--transition-bounce), box-shadow var(--transition-bounce);
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            column-gap: 0.9rem;
             align-items: center;
-            gap: 0.5rem;
+        }
+        .why-card > .why-card-desc {
+            grid-column: 1 / -1;
+            margin-top: 0.6rem;
         }
 
         .why-card:hover {
@@ -1018,8 +1038,8 @@
         }
 
         .why-icon {
-            width: 60px;
-            height: 60px;
+            width: 44px;
+            height: 44px;
             border: 2px solid var(--border-dark);
             border-radius: var(--radius-md);
             display: flex;
@@ -1027,7 +1047,6 @@
             justify-content: center;
             box-shadow: 3px 3px 0px var(--border-dark);
             flex-shrink: 0;
-            margin-bottom: 0.25rem;
         }
 
         .why-card:nth-child(1) .why-icon {
@@ -1043,7 +1062,7 @@
             color: var(--fg-slate);
         }
         .why-card:nth-child(4) .why-icon {
-            background: var(--secondary-pink);
+            background: var(--secondary-pink-deep);
             color: #fff;
         }
 
@@ -1057,7 +1076,7 @@
 
         .why-card-title {
             font-size: 1.1rem;
-            margin: 0.25rem 0 0.1rem;
+            margin: 0;
         }
 
         .why-card-desc {
@@ -1186,7 +1205,7 @@
         .trusted-brand-item .brand-name {
             font-family: var(--font-heading);
             font-weight: 700;
-            font-size: 0.62rem;
+            font-size: 0.78rem;
             color: var(--fg-slate);
             text-align: center;
             line-height: 1.3;
@@ -1365,13 +1384,13 @@
         .testimonial-gallery-name {
             font-family: var(--font-heading);
             font-weight: 800;
-            font-size: 0.65rem;
+            font-size: 0.8rem;
             color: var(--fg-slate);
             line-height: 1.2;
         }
 
         .testimonial-gallery-company {
-            font-size: 0.55rem;
+            font-size: 0.72rem;
             color: #64748B;
             font-weight: 600;
         }
@@ -1390,6 +1409,7 @@
             flex: 0 0 260px;
             max-width: 260px;
             width: 100%;
+            padding: 10px;
             aspect-ratio: 9 / 18;
             border-radius: 28px;
             border: 3px solid var(--border-dark);
@@ -1448,7 +1468,7 @@
         }
 
         .cta-banner {
-            background: var(--primary-violet);
+            background: var(--primary-dark);
             color: var(--surface-white);
             border: 3px solid var(--border-dark);
             border-radius: var(--radius-lg);
@@ -1538,7 +1558,7 @@
         }
 
         .modal-close:hover {
-            background: var(--secondary-pink);
+            background: var(--secondary-pink-deep);
             color: var(--surface-white);
         }
 
@@ -1695,7 +1715,7 @@
                 box-shadow: 2.3px 2.3px 0px var(--border-dark), 0 0 0 2.6px var(--highlight-yellow);
             }
             .trusted-brand-item .brand-name {
-                font-size: 0.58rem;
+                font-size: 0.72rem;
                 max-width: 78px;
                 line-height: 1.3;
             }
@@ -1868,13 +1888,13 @@
                 padding: 0.8rem;
             }
             .floating-sticker {
-                font-size: 0.5rem;
-                padding: 0.25rem 0.4rem;
-                gap: 0.2rem;
+                font-size: 0.72rem;
+                padding: 0.35rem 0.6rem;
+                gap: 0.3rem;
             }
             .floating-sticker svg {
-                width: 10px;
-                height: 10px;
+                width: 14px;
+                height: 14px;
             }
             .sticker-sales {
                 top: -8px;
@@ -1919,7 +1939,7 @@
                 min-height: unset;
             }
             .process-step-pill {
-                font-size: 0.6rem;
+                font-size: 0.72rem;
                 padding: 0.15rem 0.5rem;
                 margin-bottom: 0.5rem;
             }
@@ -1988,7 +2008,7 @@
                 object-fit: contain;
             }
             .trusted-brand-item .brand-name {
-                font-size: 0.5rem;
+                font-size: 0.72rem;
                 max-width: 68px;
                 line-height: 1.3;
                 margin-top: 0;
@@ -2029,20 +2049,20 @@
                 margin-bottom: 0.4rem;
             }
             .comp-badge {
-                font-size: 0.55rem;
+                font-size: 0.72rem;
                 padding: 0.15rem 0.45rem;
             }
             .comp-list {
                 gap: 0.3rem;
             }
             .comp-item {
-                font-size: 0.6rem;
+                font-size: 0.78rem;
                 gap: 0.3rem;
             }
             .comp-icon {
-                width: 14px;
-                height: 14px;
-                font-size: 0.5rem;
+                width: 16px;
+                height: 16px;
+                font-size: 0.72rem;
             }
 
             .testimonial-marquee-wrap {
@@ -2061,10 +2081,10 @@
                 max-width: 78px;
             }
             .testimonial-gallery-name {
-                font-size: 0.48rem;
+                font-size: 0.72rem;
             }
             .testimonial-gallery-company {
-                font-size: 0.4rem;
+                font-size: 0.72rem;
             }
             .testimonial-gallery-overlay svg {
                 width: 12px;
@@ -2152,7 +2172,7 @@
                 font-size: 0.8rem;
             }
             .lightbox-company {
-                font-size: 0.65rem;
+                font-size: 0.72rem;
             }
             .modal-overlay#testimonialLightbox .modal-close {
                 width: 34px;
@@ -2169,7 +2189,7 @@
                 font-size: clamp(1.6rem, 10vw, 2rem);
             }
             .pill-badge {
-                font-size: 0.65rem;
+                font-size: 0.72rem;
                 padding: 0.25rem 0.6rem;
             }
 
@@ -2202,7 +2222,7 @@
                 object-fit: contain;
             }
             .trusted-brand-item .brand-name {
-                font-size: 0.45rem;
+                font-size: 0.72rem;
                 max-width: 58px;
                 line-height: 1.3;
                 margin-top: 0;
@@ -2250,6 +2270,7 @@
             }
             .why-card {
                 padding: 0.7rem 0.5rem;
+                column-gap: 0.6rem;
             }
             .why-icon {
                 width: 36px;
@@ -2261,9 +2282,11 @@
             }
             .why-card-title {
                 font-size: 0.8rem;
+                text-align: left;
             }
             .why-card-desc {
-                font-size: 0.68rem;
+                font-size: 0.72rem;
+                text-align: left;
             }
 
             .services-grid {
@@ -2285,7 +2308,7 @@
                 font-size: 0.8rem;
             }
             .service-desc {
-                font-size: 0.68rem;
+                font-size: 0.72rem;
             }
             .process-grid {
                 gap: 0.5rem;
@@ -2294,7 +2317,7 @@
                 padding: 0.6rem;
             }
             .process-step-pill {
-                font-size: 0.5rem;
+                font-size: 0.72rem;
                 padding: 0.12rem 0.4rem;
                 margin-bottom: 0.4rem;
             }
@@ -2302,7 +2325,7 @@
                 font-size: 0.8rem;
             }
             .process-desc {
-                font-size: 0.68rem;
+                font-size: 0.72rem;
             }
             .process-number {
                 font-size: 1.6rem;
@@ -2327,14 +2350,14 @@
                 margin-top: 0.4rem;
             }
             .lightbox-quote {
-                font-size: 0.65rem;
+                font-size: 0.72rem;
                 margin-bottom: 0.3rem;
             }
             .lightbox-name {
                 font-size: 0.7rem;
             }
             .lightbox-company {
-                font-size: 0.55rem;
+                font-size: 0.72rem;
             }
             .modal-overlay#testimonialLightbox .modal-close {
                 width: 30px;
@@ -2361,7 +2384,7 @@
             .trusted-brand-item .brand-icon {
                 width: 30px;
                 height: 30px;
-                font-size: 0.68rem;
+                font-size: 0.72rem;
                 border-width: 0.06px;
                 border-color: rgba(30, 41, 59, 0.16);
                 box-shadow: 0.94px 0.94px 0px rgba(30, 41, 59, 0.85);
@@ -2372,7 +2395,7 @@
                 object-fit: contain;
             }
             .trusted-brand-item .brand-name {
-                font-size: 0.42rem;
+                font-size: 0.72rem;
                 max-width: 52px;
                 line-height: 1.2;
                 margin-top: 0;
@@ -2398,7 +2421,7 @@
         <nav class="nav-container">
             <a href="#home" class="brand-logo">
                 <div class="logo-box">
-                    <img src="img-logo/KW-icon.png" alt="Kotak Wayang Studio Logo" />
+                    <img src="img-logo/KW-icon.webp" alt="Kotak Wayang Studio Logo" width="128" height="128" fetchpriority="high" decoding="async" />
                 </div>
                 <span>KOTAK WAYANG STUDIO</span>
             </a>
@@ -2416,7 +2439,7 @@
                     <svg class="nav-book-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                     <span class="nav-book-text">Book Consultation</span>
                 </button>
-                <button class="mobile-toggle" onclick="toggleMobileNav()" aria-label="Toggle menu">
+                <button class="mobile-toggle" onclick="toggleMobileNav()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </div>
@@ -2963,7 +2986,7 @@
         <section id="services" class="section-padding">
             <div class="container">
                 <div class="section-header">
-                    <div class="pill-badge" style="background:var(--secondary-pink); color:white;">END-TO-END ENGINEERING</div>
+                    <div class="pill-badge" style="background:var(--secondary-pink-deep); color:white;">END-TO-END ENGINEERING</div>
                     <h2 class="section-title">Permanent Livestream Studio Solution</h2>
                     <p class="section-subtitle">High-converting studio setups engineered specifically for TikTok Shop, Shopee Live, and corporate broadcasting.</p>
                 </div>
@@ -3018,7 +3041,7 @@
         <section id="process" class="section-padding process-section">
             <div class="container">
                 <div class="section-header">
-                    <div class="pill-badge" style="background:var(--primary-violet); color:white;">SEAMLESS PROCESS</div>
+                    <div class="pill-badge" style="background:var(--primary-deep); color:white;">SEAMLESS PROCESS</div>
                     <h2 class="section-title">How We Transform Your Studio</h2>
                     <p class="section-subtitle">From empty room to a revenue-generating livestream studio in 4 structured steps.</p>
                 </div>
@@ -3052,7 +3075,7 @@
                         <div class="comparison-phone">
                             <div class="phone-frame">
                                 <div class="phone-screen before-screen phone-media-slot">
-                                    <img src="images-testimoni/C1.png" alt="Amateur livestream setup before">
+                                    <img src="images-testimoni/C1.webp" alt="Amateur livestream setup before" width="640" height="1138" decoding="async" fetchpriority="high">
                                 </div>
                             </div>
                         </div>
@@ -3070,7 +3093,7 @@
                         <div class="comparison-phone">
                             <div class="phone-frame">
                                 <div class="phone-screen after-screen phone-media-slot">
-                                    <img src="images-testimoni/C2.png">
+                                    <img src="images-testimoni/C2.webp" alt="Professional Kotak Wayang studio setup after" width="640" height="1138" loading="lazy" decoding="async">
                                 </div>
                             </div>
                         </div>
@@ -3092,7 +3115,7 @@
         <section id="why-choose-us" class="section-padding" style="background:#F8FAFC; border-top:2px solid var(--border-dark); border-bottom:2px solid var(--border-dark);">
             <div class="container">
                 <div class="section-header">
-                    <div class="pill-badge" style="background:var(--primary-violet); color:white;">BUILT DIFFERENT</div>
+                    <div class="pill-badge" style="background:var(--primary-deep); color:white;">BUILT DIFFERENT</div>
                     <h2 class="section-title">Why Choose Us</h2>
                     <p class="section-subtitle">We don't just set up equipment — we engineer complete, reliable live streaming ecosystems.</p>
                 </div>
@@ -3134,7 +3157,7 @@
             <div class="container">
                 <div class="section-header">
                     <div class="pill-badge" style="background:var(--mint-green); color:var(--fg-slate);">OUR CLIENTS</div>
-                    <h2 class="section-title">Trusted By</h2>
+                    <h2 class="section-title">Brands We've Worked With</h2>
                     <p class="section-subtitle">Brands and creators who trust us with their live streaming needs</p>
                 </div>
 
@@ -3195,12 +3218,12 @@
     </main>
 
     <!-- ═══ MODALS ═══ -->
-    <div id="bookingModal" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+    <div id="bookingModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle" onclick="closeModalOnOverlay(event)">
         <div class="modal-card">
-            <button class="modal-close" onclick="closeModal()">✕</button>
+            <button class="modal-close" onclick="closeModal()" aria-label="Close booking form">✕</button>
             <div style="margin-bottom:1rem;">
                 <div class="pill-badge" style="background:var(--highlight-yellow); font-size:0.7rem; margin-bottom:0.4rem;">FREE CONSULTATION</div>
-                <h3 style="font-size:1.5rem;">Book Your Appointment</h3>
+                <h3 id="bookingModalTitle" style="font-size:1.5rem;">Book Your Appointment</h3>
                 <p style="color:#64748B; font-size:0.85rem;">Fill in your details and our team will get back to you within 24 hours.</p>
             </div>
             <form id="consultForm" onsubmit="handleFormSubmit(event)">
@@ -3230,11 +3253,11 @@
         </div>
     </div>
 
-    <div id="testimonialLightbox" class="modal-overlay" onclick="closeTestimonialLightboxOnOverlay(event)">
+    <div id="testimonialLightbox" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="lightboxName" onclick="closeTestimonialLightboxOnOverlay(event)">
         <div class="modal-card lightbox-card">
             <button class="modal-close" onclick="closeTestimonialLightbox()" aria-label="Close">✕</button>
             <div class="lightbox-media">
-                <img id="lightboxImg" src="" alt="" style="display:none;">
+                <img id="lightboxImg" src="" alt="" decoding="async" style="display:none;">
                 <video id="lightboxVideo" controls playsinline style="display:none;"></video>
                 <span id="lightboxPlaceholder" class="phone-media-placeholder">Add photo / video</span>
             </div>
@@ -3259,7 +3282,7 @@
             <div class="footer-simple">
                 <a href="#home" class="brand-logo" style="margin-bottom:0.75rem;">
                     <div class="logo-box">
-                        <img src="img-logo/KW-3D.png" alt="Kotak Wayang Studio Logo" />
+                        <img src="img-logo/KW-3D.webp" alt="Kotak Wayang Studio Logo" width="160" height="160" loading="lazy" decoding="async" />
                     </div>
                     <span>KOTAK WAYANG STUDIO</span>
                 </a>
@@ -3298,121 +3321,121 @@
             name: 'B.U.M Equipment',
             company: 'Fashion',
             quote: 'Lepas upgrade setup ni memang nampak beza dekat live. Lighting lagi cantik, colour product pun lebih accurate and overall feed nampak jauh lebih clean.',
-            media: 'images-testimoni/5.png',
+            media: 'images-testimoni/5.webp',
             type: 'image'
         }, {
             name: 'Shawlpublika',
             company: 'Fashion',
             quote: 'Before ni susah sikit nak bagi outfit nampak cantik on camera. Lepas setup baru ni, lighting dengan backdrop memang banyak membantu. Product nampak lebih clear and lebih senang nak showcase.',
-            media: 'images-testimoni/10.png',
+            media: 'images-testimoni/10.webp',
             type: 'image'
         }, {
             name: 'Corolla Shoes',
             company: 'Fashion',
             quote: 'Yang paling kami suka, setup sekarang nampak lebih kemas and senang untuk team operate. Tak serabut sangat macam setup lama, especially bila tengah live.',
-            media: 'images-testimoni/11.png',
+            media: 'images-testimoni/11.webp',
             type: 'image'
         }, {
             name: 'LyndaRahim HQ',
             company: 'Fashion',
             quote: 'Camera setup memang membantu especially bila nak tunjuk full outfit. Wide shot sekarang nampak lebih proper and tak rasa macam terlalu sempit dalam frame.',
-            media: 'images-testimoni/16.png',
+            media: 'images-testimoni/16.webp',
             type: 'image'
         }, {
             name: 'Zoe Arisah',
             company: 'Fashion',
             quote: 'Close-up product sekarang memang nampak lagi sharp. Detail kain, texture semua boleh nampak better, so host pun senang nak explain dekat viewers.',
-            media: 'images-testimoni/17.png',
+            media: 'images-testimoni/17.webp',
             type: 'image'
         }, {
             name: 'B.U.M Equipment',
             company: 'Shoes',
             quote: 'Bila buat close-up kasut sekarang, details dekat material and finishing memang lebih jelas. Viewers pun senang nak tengok product properly sebelum decide nak beli.',
-            media: 'images-testimoni/6.png',
+            media: 'images-testimoni/6.webp',
             type: 'image'
         }, {
             name: 'Innisfree',
             company: 'Beauty & Personal Care',
             quote: 'Live feed sekarang memang nampak jauh lebih clean. Lighting pun buat skin tone dengan product colour nampak lebih natural. Overall memang nampak lebih professional.',
-            media: 'images-testimoni/1.png',
+            media: 'images-testimoni/1.webp',
             type: 'image'
         }, {
             name: 'Nihon Skincare',
             company: 'Beauty & Personal Care',
             quote: 'Honestly memang nampak beza lepas upgrade setup. Studio nampak lebih polished and bila live, brand pun rasa lebih premium dekat screen.',
-            media: 'images-testimoni/8.png',
+            media: 'images-testimoni/8.webp',
             type: 'image'
         }, {
             name: 'YSL Beauty Malaysia',
             company: 'Beauty & Personal Care',
             quote: 'Lighting dengan camera setup memang buat difference bila buat product demo. Colour product nampak lebih proper and close-up pun clear, so senang nak tunjuk details dekat viewers.',
-            media: 'images-testimoni/18.png',
+            media: 'images-testimoni/18.webp',
             type: 'image'
         }, {
             name: 'Habib',
             company: 'Gold & Jewelry Accessories',
             quote: 'Lepas tukar setup ni memang nampak beza dekat live feed. Especially bila nak tunjuk jewellery close-up, details kecil macam finishing dengan design nampak lebih jelas.',
-            media: 'images-testimoni/2.png',
+            media: 'images-testimoni/2.webp',
             type: 'image'
         }, {
             name: 'Pandora',
             company: 'Jewelry Accessories',
             quote: 'Bila buat close-up sekarang, charms, bracelet details semua boleh nampak lebih jelas. Before ni agak susah nak capture benda kecil macam ni masa live.',
-            media: 'images-testimoni/14.png',
+            media: 'images-testimoni/14.webp',
             type: 'image'
         }, {
             name: 'Samsonite',
             company: 'Luggage & Travel',
             quote: 'Setup ni memang bagi kita lebih flexibility masa showcase luggage. Nak buat wide shot atau close-up senang, so viewers boleh nampak size dengan details product dengan lebih jelas.',
-            media: 'images-testimoni/19.png',
+            media: 'images-testimoni/19.webp',
             type: 'image'
         }, {
             name: 'American Tourister',
             company: 'Luggage & Travel',
             quote: 'Colourful products macam ni memang penting lighting kena betul. Lepas setup baru, colour luggage nampak lebih vibrant and overall live rasa lebih lively.',
-            media: 'images-testimoni/20.png',
+            media: 'images-testimoni/20.webp',
             type: 'image'
         }, {
             name: 'Zuss Coffee',
             company: 'Food & Beverages',
             quote: 'Sekarang senang sikit nak showcase drinks masa live. Camera angle dengan lighting memang membantu bagi product nampak lebih clear, especially bila host tengah buat demo.',
-            media: 'images-testimoni/4.png',
+            media: 'images-testimoni/4.webp',
             type: 'image'
         }, {
             name: 'Oreo',
             company: 'Food & Beverages',
             quote: 'Bila host tengah buat demo, viewers boleh nampak dengan lebih jelas apa yang tengah dibuat. Live rasa lebih interactive sebab boleh switch angle ikut apa yang host tengah tunjuk.',
-            media: 'images-testimoni/15.png',
+            media: 'images-testimoni/15.webp',
             type: 'image'
         }, {
             name: 'Cadbury Dairymilk',
             company: 'Food & Beverages',
             quote: 'Lighting memang buat banyak difference untuk product macam chocolate. Colour dengan texture nampak lebih nice on camera, especially bila buat close-up.',
-            media: 'images-testimoni/12.png',
+            media: 'images-testimoni/12.webp',
             type: 'image'
         }, {
             name: 'Zuss Coffee',
             company: 'Food & Beverages',
             quote: 'Multi-cam setup memang membantu sebab boleh tukar angle ikut apa yang nak tunjuk. Product details pun viewers boleh nampak dengan lebih jelas.',
-            media: 'images-testimoni/7.png',
+            media: 'images-testimoni/7.webp',
             type: 'image'
         }, {
             name: 'Simplus',
             company: 'Home Appliances',
             quote: 'Bila explain product features masa live, senang sebab boleh tunjuk dekat camera terus. Close-up pun clear, so viewers tak perlu agak-agak sangat macam mana product tu.',
-            media: 'images-testimoni/3.png',
+            media: 'images-testimoni/3.webp',
             type: 'image'
         }, {
             name: 'Liza | Racun Mommies',
             company: 'Baby & Maternity',
             quote: 'Setup sekarang memang lebih senang untuk daily live. Everything dah lebih organised, so host boleh focus dekat content and viewers instead of fikir pasal technical issue.',
-            media: 'images-testimoni/13.png',
+            media: 'images-testimoni/13.webp',
             type: 'image'
         }, {
             name: 'Zuss Coffee',
             company: 'Food & Beverages',
             quote: 'Audio sekarang memang jauh lebih clear. Masa host explain product atau interact dengan viewers, suara lebih senang nak dengar and tak macam dulu yang kadang-kadang ada echo.',
-            media: 'images-testimoni/9.png',
+            media: 'images-testimoni/9.webp',
             type: 'image'
         }];
 
@@ -3420,72 +3443,72 @@
         const brandGroups = [
             // ── ROW 1 (11 brands) ──
             [
-                { name: 'Cadbury', color: '#FFFFFF', image: 'BrandLogo/1.png' },
-                { name: 'Xiaomi', color: '#FFFFFF', image: 'BrandLogo/49.png' },
-                { name: 'Innisfree', color: '#FFFFFF', image: 'BrandLogo/27.png' },
-                { name: 'Coach', color: '#FFFFFF', image: 'BrandLogo/4.png' },
-                { name: 'TikTokShop MY', color: '#FFFFFF', image: 'BrandLogo/16.png' },
-                { name: 'Mossdoom', color: '#FFFFFF', image: 'BrandLogo/6.png' },
-                { name: 'Shawlpublika', color: '#FFFFFF', image: 'BrandLogo/9.png' },
-                { name: 'B.U.M', color: '#FFFFFF', image: 'BrandLogo/19.png' },
-                { name: 'Simplus', color: '#FFFFFF', image: 'BrandLogo/44.png' },
-                { name: 'Sasa', color: '#FFFFFF', image: 'BrandLogo/42.png' },
-                { name: 'Xixili', color: '#FFFFFF', image: 'BrandLogo/54.png' },
+                { name: 'Cadbury', color: '#FFFFFF', image: 'BrandLogo/1.webp' },
+                { name: 'Xiaomi', color: '#FFFFFF', image: 'BrandLogo/49.webp' },
+                { name: 'Innisfree', color: '#FFFFFF', image: 'BrandLogo/27.webp' },
+                { name: 'Coach', color: '#FFFFFF', image: 'BrandLogo/4.webp' },
+                { name: 'TikTokShop MY', color: '#FFFFFF', image: 'BrandLogo/16.webp' },
+                { name: 'Mossdoom', color: '#FFFFFF', image: 'BrandLogo/6.webp' },
+                { name: 'Shawlpublika', color: '#FFFFFF', image: 'BrandLogo/9.webp' },
+                { name: 'B.U.M', color: '#FFFFFF', image: 'BrandLogo/19.webp' },
+                { name: 'Simplus', color: '#FFFFFF', image: 'BrandLogo/44.webp' },
+                { name: 'Sasa', color: '#FFFFFF', image: 'BrandLogo/42.webp' },
+                { name: 'Xixili', color: '#FFFFFF', image: 'BrandLogo/54.webp' },
             ],
             // ── ROW 2 (11 brands) ──
             [
-                { name: 'Disney', color: '#FFFFFF', image: 'BrandLogo/7.png' },
-                { name: 'Zus Coffee', color: '#FFFFFF', image: 'BrandLogo/32.png' },
-                { name: 'Pandora', color: '#FFFFFF', image: 'BrandLogo/13.png' },
-                { name: 'Ugreen', color: '#FFFFFF', image: 'BrandLogo/17.png' },
-                { name: 'Carlo Rino', color: '#FFFFFF', image: 'BrandLogo/5.png' },
-                { name: 'Wardah', color: '#FFFFFF', image: 'BrandLogo/25.png' },
-                { name: 'Lynda Rahim', color: '#FFFFFF', image: 'BrandLogo/11.png' },
-                { name: 'Anta', color: '#FFFFFF', image: 'BrandLogo/20.png' },
-                { name: 'Nihon', color: '#FFFFFF', image: 'BrandLogo/39.png' },
-                { name: 'Dynamo', color: '#FFFFFF', image: 'BrandLogo/53.png' },
-                { name: 'Tefal', color: '#FFFFFF', image: 'BrandLogo/46.png' },
+                { name: 'Disney', color: '#FFFFFF', image: 'BrandLogo/7.webp' },
+                { name: 'Zus Coffee', color: '#FFFFFF', image: 'BrandLogo/32.webp' },
+                { name: 'Pandora', color: '#FFFFFF', image: 'BrandLogo/13.webp' },
+                { name: 'Ugreen', color: '#FFFFFF', image: 'BrandLogo/17.webp' },
+                { name: 'Carlo Rino', color: '#FFFFFF', image: 'BrandLogo/5.webp' },
+                { name: 'Wardah', color: '#FFFFFF', image: 'BrandLogo/25.webp' },
+                { name: 'Lynda Rahim', color: '#FFFFFF', image: 'BrandLogo/11.webp' },
+                { name: 'Anta', color: '#FFFFFF', image: 'BrandLogo/20.webp' },
+                { name: 'Nihon', color: '#FFFFFF', image: 'BrandLogo/39.webp' },
+                { name: 'Dynamo', color: '#FFFFFF', image: 'BrandLogo/53.webp' },
+                { name: 'Tefal', color: '#FFFFFF', image: 'BrandLogo/46.webp' },
             ],
             // ── ROW 3 (11 brands) ──
             [
-                { name: 'Nestle', color: '#FFFFFF', image: 'BrandLogo/35.png' },
-                { name: 'Puma', color: '#FFFFFF', image: 'BrandLogo/21.png' },
-                { name: 'Mac', color: '#FFFFFF', image: 'BrandLogo/28.png' },
-                { name: 'Samsonite', color: '#FFFFFF', image: 'BrandLogo/23.png' },
-                { name: 'Hisense', color: '#FFFFFF', image: 'BrandLogo/14.png' },
-                { name: 'Laneige', color: '#FFFFFF', image: 'BrandLogo/31.png' },
-                { name: 'Habib', color: '#FFFFFF', image: 'BrandLogo/12.png' },
-                { name: 'Polo Hill', color: '#FFFFFF', image: 'BrandLogo/8.png' },
-                { name: 'Skinmade', color: '#FFFFFF', image: 'BrandLogo/26.png' },
-                { name: 'Roborock', color: '#FFFFFF', image: 'BrandLogo/47.png' },
-                { name: 'HyperGear', color: '#FFFFFF', image: 'BrandLogo/52.png' },
+                { name: 'Nestle', color: '#FFFFFF', image: 'BrandLogo/35.webp' },
+                { name: 'Puma', color: '#FFFFFF', image: 'BrandLogo/21.webp' },
+                { name: 'Mac', color: '#FFFFFF', image: 'BrandLogo/28.webp' },
+                { name: 'Samsonite', color: '#FFFFFF', image: 'BrandLogo/23.webp' },
+                { name: 'Hisense', color: '#FFFFFF', image: 'BrandLogo/14.webp' },
+                { name: 'Laneige', color: '#FFFFFF', image: 'BrandLogo/31.webp' },
+                { name: 'Habib', color: '#FFFFFF', image: 'BrandLogo/12.webp' },
+                { name: 'Polo Hill', color: '#FFFFFF', image: 'BrandLogo/8.webp' },
+                { name: 'Skinmade', color: '#FFFFFF', image: 'BrandLogo/26.webp' },
+                { name: 'Roborock', color: '#FFFFFF', image: 'BrandLogo/47.webp' },
+                { name: 'HyperGear', color: '#FFFFFF', image: 'BrandLogo/52.webp' },
             ],
             // ── ROW 4 (11 brands) ──
             [
-                { name: 'Oreo', color: '#FFFFFF', image: 'BrandLogo/2.png' },
-                { name: 'Huawei', color: '#FFFFFF', image: 'BrandLogo/50.png' },
-                { name: 'YSL', color: '#FFFFFF', image: 'BrandLogo/29.png' },
-                { name: 'Am. Tourister', color: '#FFFFFF', image: 'BrandLogo/24.png' },
-                { name: 'TCL', color: '#FFFFFF', image: 'BrandLogo/15.png' },
-                { name: 'Lancome', color: '#FFFFFF', image: 'BrandLogo/30.png' },
-                { name: 'Ogawa', color: '#FFFFFF', image: 'BrandLogo/37.png' },
-                { name: 'Zoe Arisah', color: '#FFFFFF', image: 'BrandLogo/10.png' },
-                { name: 'Aik Cheong', color: '#FFFFFF', image: 'BrandLogo/33.png' },
-                { name: 'Perysmith', color: '#FFFFFF', image: 'BrandLogo/45.png' },
-                { name: 'Ulike', color: '#FFFFFF', image: 'BrandLogo/43.png' },
+                { name: 'Oreo', color: '#FFFFFF', image: 'BrandLogo/2.webp' },
+                { name: 'Huawei', color: '#FFFFFF', image: 'BrandLogo/50.webp' },
+                { name: 'YSL', color: '#FFFFFF', image: 'BrandLogo/29.webp' },
+                { name: 'Am. Tourister', color: '#FFFFFF', image: 'BrandLogo/24.webp' },
+                { name: 'TCL', color: '#FFFFFF', image: 'BrandLogo/15.webp' },
+                { name: 'Lancome', color: '#FFFFFF', image: 'BrandLogo/30.webp' },
+                { name: 'Ogawa', color: '#FFFFFF', image: 'BrandLogo/37.webp' },
+                { name: 'Zoe Arisah', color: '#FFFFFF', image: 'BrandLogo/10.webp' },
+                { name: 'Aik Cheong', color: '#FFFFFF', image: 'BrandLogo/33.webp' },
+                { name: 'Perysmith', color: '#FFFFFF', image: 'BrandLogo/45.webp' },
+                { name: 'Ulike', color: '#FFFFFF', image: 'BrandLogo/43.webp' },
             ],
             // ── ROW 5 (10 brands) ──
             [
-                { name: 'Chipsmore', color: '#FFFFFF', image: 'BrandLogo/3.png' },
-                { name: 'Realme', color: '#FFFFFF', image: 'BrandLogo/48.png' },
-                { name: 'The Body Shop', color: '#FFFFFF', image: 'BrandLogo/41.png' },
-                { name: 'Montigo', color: '#FFFFFF', image: 'BrandLogo/51.png' },
-                { name: 'Daniel W.', color: '#FFFFFF', image: 'BrandLogo/22.png' },
-                { name: 'Corolla Shoes', color: '#FFFFFF', image: 'BrandLogo/18.png' },
-                { name: 'Oatside', color: '#FFFFFF', image: 'BrandLogo/34.png' },
-                { name: 'HWC Coffee', color: '#FFFFFF', image: 'BrandLogo/36.png' },
-                { name: 'TTracing', color: '#FFFFFF', image: 'BrandLogo/38.png' },
-                { name: 'Beauty of Josen', color: '#FFFFFF', image: 'BrandLogo/40.png' },
+                { name: 'Chipsmore', color: '#FFFFFF', image: 'BrandLogo/3.webp' },
+                { name: 'Realme', color: '#FFFFFF', image: 'BrandLogo/48.webp' },
+                { name: 'The Body Shop', color: '#FFFFFF', image: 'BrandLogo/41.webp' },
+                { name: 'Montigo', color: '#FFFFFF', image: 'BrandLogo/51.webp' },
+                { name: 'Daniel W.', color: '#FFFFFF', image: 'BrandLogo/22.webp' },
+                { name: 'Corolla Shoes', color: '#FFFFFF', image: 'BrandLogo/18.webp' },
+                { name: 'Oatside', color: '#FFFFFF', image: 'BrandLogo/34.webp' },
+                { name: 'HWC Coffee', color: '#FFFFFF', image: 'BrandLogo/36.webp' },
+                { name: 'TTracing', color: '#FFFFFF', image: 'BrandLogo/38.webp' },
+                { name: 'Beauty of Josen', color: '#FFFFFF', image: 'BrandLogo/40.webp' },
             ],
         ];
 
@@ -3505,7 +3528,7 @@
 
             let mediaContent = `<span class="phone-media-placeholder">Add photo / video</span>`;
             if (data.media) {
-                mediaContent = `<img src="${data.media}" alt="${data.name}" style="width:100%;height:100%;object-fit:cover;">`;
+                mediaContent = `<img src="${data.media}" alt="${data.name} livestream setup" loading="lazy" decoding="async" width="640" height="1330" style="width:100%;height:100%;object-fit:cover;">`;
             }
 
             item.innerHTML = `
@@ -3540,7 +3563,7 @@
             item.className = 'trusted-brand-item';
             let iconContent;
             if (brand.image) {
-                iconContent = `<img src="${brand.image}" alt="${brand.name} logo">`;
+                iconContent = `<img src="${brand.image}" alt="${brand.name} logo" loading="lazy" decoding="async" width="96" height="96">`;
             } else {
                 const initial = brand.name.charAt(0);
                 iconContent = initial;
@@ -3796,14 +3819,28 @@
         }
 
         // ─── MODAL FUNCTIONS ───
+        let lastFocused = null;
+
+        function trapFocus(container, e) {
+            const f = container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+            if (!f.length) return;
+            const first = f[0], last = f[f.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+
         function openModal() {
-            document.getElementById('bookingModal').classList.add('active');
+            lastFocused = document.activeElement;
+            const m = document.getElementById('bookingModal');
+            m.classList.add('active');
             document.body.style.overflow = 'hidden';
+            setTimeout(() => document.getElementById('fullName').focus(), 60);
         }
 
         function closeModal() {
             document.getElementById('bookingModal').classList.remove('active');
             document.body.style.overflow = '';
+            if (lastFocused) { lastFocused.focus(); lastFocused = null; }
         }
 
         function closeModalOnOverlay(e) {
@@ -3841,7 +3878,8 @@
 
         function toggleMobileNav() {
             const links = document.getElementById('navLinks');
-            links.classList.toggle('mobile-open');
+            const open = links.classList.toggle('mobile-open');
+            document.querySelector('.mobile-toggle').setAttribute('aria-expanded', String(open));
         }
 
         document.querySelectorAll('#navLinks .nav-link').forEach(link => {
@@ -3876,19 +3914,23 @@
                 vid.style.display = 'block';
             } else if (mediaSrc) {
                 img.src = mediaSrc;
+                img.alt = name + ' livestream setup';
                 img.style.display = 'block';
             } else {
                 placeholder.style.display = 'flex';
             }
 
+            lastFocused = document.activeElement;
             document.getElementById('testimonialLightbox').classList.add('active');
             document.body.style.overflow = 'hidden';
+            document.querySelector('#testimonialLightbox .modal-close').focus();
         }
 
         function closeTestimonialLightbox() {
             document.getElementById('testimonialLightbox').classList.remove('active');
             document.body.style.overflow = '';
             document.getElementById('lightboxVideo').pause();
+            if (lastFocused) { lastFocused.focus(); lastFocused = null; }
         }
 
         function closeTestimonialLightboxOnOverlay(e) {
@@ -3899,13 +3941,19 @@
             if (e.key === 'Escape') {
                 closeTestimonialLightbox();
                 closeModal();
+                return;
             }
+            if (e.key !== 'Tab') return;
+            const open = document.querySelector('.modal-overlay.active');
+            if (open) trapFocus(open, e);
         });
 
         // ─── INIT ───
         document.addEventListener('DOMContentLoaded', function() {
             initSliders();
         });
+
+        window.addEventListener('pagehide', () => sliders.forEach(s => s.stop()));
     </script>
 </body>
 </html>
